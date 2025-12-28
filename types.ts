@@ -6,19 +6,32 @@ export interface Project {
   image: string;
   tags: string[];
   description: string;
-  difficulty: string;
+  detailedDescription?: string;
+  features?: string[];
+  role?: string;
+  status?: string;
+  technicalDetails?: string;
+  demoUrl?: string;
+  repoUrl?: string;
 }
 
-export interface Skill {
+export interface SkillItem {
   name: string;
-  level: number;
+  desc?: string;
+}
+
+export interface SkillGroup {
+  category: string;
+  description: string;
   icon: string;
-  color: string;
+  items: SkillItem[];
 }
 
 export enum Section {
   Home = 'home',
+  About = 'about',
   Projects = 'projects',
+  Education = 'education',
   Skills = 'skills',
   Contact = 'contact'
 }

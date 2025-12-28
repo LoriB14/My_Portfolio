@@ -20,27 +20,27 @@ const Contact: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         <div className="space-y-12">
           <div>
-            <h3 className="text-3xl font-display font-black text-white mb-6 uppercase tracking-tight">Let's Discuss Your Next Project</h3>
+            <h3 className="text-3xl font-display font-black text-white mb-6 uppercase tracking-tight">Get In Touch</h3>
             <p className="text-blue-100 leading-relaxed max-w-lg text-lg">
-              I'm always looking for interesting engineering challenges. Whether you're a startup or a global firm, let's build something exceptional together.
+              Have a question, an opportunity, or just want to say hello? My inbox is always open. Feel free to reach out anytime.
             </p>
           </div>
           
           <div className="space-y-6">
-            <div className="group flex items-center gap-6 cursor-pointer p-4 hover:bg-white/5 transition-colors border border-white/10">
+            <a href="mailto:lbattouk@gmail.com" className="group flex items-center gap-6 cursor-pointer p-4 hover:bg-white/5 transition-colors border border-white/10">
               <div className="w-14 h-14 bg-slate-900 flex items-center justify-center group-hover:border-red-600 transition-all border border-white/20 text-2xl text-white">✉️</div>
               <div>
                 <p className="text-[9px] font-bold text-white/60 uppercase tracking-[0.3em] mb-1">Direct Email</p>
-                <p className="font-display font-bold text-white group-hover:text-red-500 transition-colors">lori@battouk.com</p>
+                <p className="font-display font-bold text-white group-hover:text-red-500 transition-colors">lbattouk@gmail.com</p>
               </div>
-            </div>
-            <div className="group flex items-center gap-6 cursor-pointer p-4 hover:bg-white/5 transition-colors border border-white/10">
+            </a>
+            <a href="https://www.linkedin.com/in/loribattouk/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 cursor-pointer p-4 hover:bg-white/5 transition-colors border border-white/10">
               <div className="w-14 h-14 bg-slate-900 flex items-center justify-center group-hover:border-sky-500 transition-all border border-white/20 text-2xl text-white">🔗</div>
               <div>
-                <p className="text-[9px] font-bold text-white/60 uppercase tracking-[0.3em] mb-1">Social Hub</p>
+                <p className="text-[9px] font-bold text-white/60 uppercase tracking-[0.3em] mb-1">LinkedIn</p>
                 <p className="font-display font-bold text-white group-hover:text-sky-400 transition-colors">linkedin.com/in/loribattouk</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
             <div className="py-24 text-center">
               <div className="text-6xl mb-6">✅</div>
               <h4 className="text-2xl font-display font-black text-white mb-4 uppercase">Message Received</h4>
-              <p className="text-white/80 text-sm">I'll get back to you within 24 hours.</p>
+              <p className="text-white/80 text-sm">I'll get back to you soon.</p>
               <button 
                 onClick={() => setStatus('idle')}
                 className="mt-12 text-[10px] font-black text-red-500 hover:text-white tracking-[0.4em] uppercase underline underline-offset-8 transition-all"
@@ -64,15 +64,15 @@ const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-2">
                 <label className="text-[9px] font-bold text-white/60 uppercase tracking-[0.4em]">Full Name</label>
-                <input required type="text" placeholder="EX: CLAUDE SHANNON" className="w-full bg-slate-950 border border-white/10 focus:border-red-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all placeholder-white/30" />
+                <input required type="text" placeholder="NAME" className="w-full bg-slate-950 border border-white/10 focus:border-red-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all placeholder-white/30" />
               </div>
               <div className="space-y-2">
                 <label className="text-[9px] font-bold text-white/60 uppercase tracking-[0.4em]">Email</label>
-                <input required type="email" placeholder="LORI@EXAMPLE.COM" className="w-full bg-slate-950 border border-white/10 focus:border-sky-500 outline-none p-4 font-display text-xs tracking-widest text-white transition-all placeholder-white/30" />
+                <input required type="email" placeholder="EMAIL" className="w-full bg-slate-950 border border-white/10 focus:border-sky-500 outline-none p-4 font-display text-xs tracking-widest text-white transition-all placeholder-white/30" />
               </div>
               <div className="space-y-2">
                 <label className="text-[9px] font-bold text-white/60 uppercase tracking-[0.4em]">Message</label>
-                <textarea required rows={4} placeholder="WHAT CAN WE BUILD TOGETHER?" className="w-full bg-slate-950 border border-white/10 focus:border-red-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all resize-none placeholder-white/30"></textarea>
+                <textarea required rows={4} placeholder="MESSAGE..." className="w-full bg-slate-950 border border-white/10 focus:border-red-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all resize-none placeholder-white/30"></textarea>
               </div>
               
               <button type="submit" disabled={status === 'sending'} className="w-full bg-white text-slate-950 font-display font-black py-5 uppercase tracking-[0.4em] hover:bg-red-600 hover:text-white transition-all text-sm">

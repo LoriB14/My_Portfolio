@@ -5,7 +5,7 @@ import { getGeminiResponse } from '../services/geminiService';
 const GeminiAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{role: 'user' | 'ai', text: string}[]>([
-    { role: 'ai', text: 'NEXUS CORE ACTIVE. HOW CAN I ASSIST YOUR INQUIRY?' }
+    { role: 'ai', text: "Hello. I am Lori's AI Assistant. Ask me anything about her studies or skills." }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +38,7 @@ const GeminiAssistant: React.FC = () => {
           <div className="bg-slate-900 p-5 border-b border-red-600/30 flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 bg-red-600 animate-ping"></div>
-              <span className="font-display font-bold text-[10px] tracking-[0.3em] text-white uppercase">Nexus Intelligence</span>
+              <span className="font-display font-bold text-[10px] tracking-[0.3em] text-white uppercase">Lori's AI Assistant</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-500 hover:text-white transition-colors">
               ✕
@@ -75,7 +75,7 @@ const GeminiAssistant: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="SYSTEM QUERY..."
+              placeholder="ASK ABOUT ME..."
               className="flex-grow bg-slate-950 border border-white/10 focus:border-red-600 outline-none p-3 text-[10px] font-display tracking-widest text-white"
             />
             <button 

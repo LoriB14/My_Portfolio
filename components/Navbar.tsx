@@ -3,12 +3,15 @@ import React from 'react';
 
 interface NavbarProps {
   activeSection: string;
+  isHidden?: boolean;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
   const navItems = [
     { id: 'home', label: 'HOME' },
+    { id: 'about', label: 'ABOUT' },
     { id: 'projects', label: 'PROJECTS' },
+    { id: 'education', label: 'EDUCATION' },
     { id: 'skills', label: 'SKILLS' },
     { id: 'contact', label: 'CONTACT' },
   ];
@@ -26,10 +29,10 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-slate-950/80 backdrop-blur-2xl border-b border-white/10">
+    <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-slate-950/80 backdrop-blur-2xl border-b border-white/10 transition-transform duration-500 ease-in-out ${isHidden ? '-translate-y-32' : 'translate-y-0'}`}>
       <div className="flex items-center gap-4 group cursor-pointer" onClick={resetToHome}>
         <div className="relative">
-          <div className="w-12 h-12 border-2 border-red-600 flex items-center justify-center transition-all group-hover:bg-red-600 group-hover:rotate-45 duration-500">
+          <div className="w-12 h-12 border-2 border-red-600 flex items-center justify-center transition-all group-hover:bg-red-600 group-hover:rotate-45 duration-500 group-hover:shadow-[0_0_15px_#ef4444]">
             <span className="font-display font-black text-white text-xl group-hover:-rotate-45 transition-transform">LB</span>
           </div>
         </div>
@@ -39,12 +42,12 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </div>
       </div>
 
-      <div className="hidden md:flex gap-12">
+      <div className="hidden lg:flex gap-10">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
-            className={`font-display text-[11px] tracking-[0.2em] font-bold transition-all hover:text-red-500 relative py-2 ${
+            className={`font-display text-[11px] tracking-[0.2em] font-bold transition-all hover:text-red-500 relative py-2 hover:shadow-[0_0_10px_rgba(239,68,68,0.2)] ${
               activeSection === item.id ? 'text-red-600' : 'text-white'
             }`}
           >
@@ -59,7 +62,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       <div className="flex items-center gap-8">
         <button 
           onClick={() => scrollTo('contact')}
-          className="bg-red-600 text-white px-8 py-3 font-display font-black text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-red-600 transition-all border-2 border-red-600 shadow-[0_0_20px_rgba(217,4,41,0.5)]"
+          className="bg-red-600 text-white px-8 py-3 font-display font-black text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-red-600 transition-all border-2 border-red-600 shadow-[0_0_20px_rgba(217,4,41,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
         >
           CONTACT
         </button>

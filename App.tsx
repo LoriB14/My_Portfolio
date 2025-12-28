@@ -2,23 +2,29 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Education from './components/Education';
 import GeminiAssistant from './components/GeminiAssistant';
 import Contact from './components/Contact';
 import Intro from './components/Intro';
+import Resume from './components/Resume';
 
 const App: React.FC = () => {
   const [isBooted, setIsBooted] = useState(false);
   const [accessGranted, setAccessGranted] = useState(false);
   const [gameActive, setGameActive] = useState(false); // Track if game is running to hide UI
   const [activeSection, setActiveSection] = useState('home');
+  const [isProjectOpen, setIsProjectOpen] = useState(false);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     if (!accessGranted) return;
 
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'skills', 'contact'];
+      // Updated order for scroll tracking
+      const sections = ['home', 'about', 'projects', 'education', 'skills', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -34,6 +40,14 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [accessGranted]);
 
+  useEffect(() => {
+    if (isResumeOpen) {
+      document.body.style.overflow = 'hidden';
+    } else if (!gameActive && !isProjectOpen) {
+      document.body.style.overflow = '';
+    }
+  }, [isResumeOpen, gameActive, isProjectOpen]);
+
   if (!isBooted) {
     return <Intro onComplete={() => setIsBooted(true)} />;
   }
@@ -42,10 +56,13 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-950 text-white cyber-grid animate-in fade-in duration-1000">
       <div className="fixed inset-0 bg-gradient-to-b from-transparent via-sky-500/5 to-transparent pointer-events-none"></div>
       
+      {/* Resume Overlay */}
+      <Resume isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+
       {/* Navbar is only visible after access is granted AND game is NOT active */}
       {accessGranted && !gameActive && (
         <div className="animate-in slide-in-from-top duration-1000">
-          <Navbar activeSection={activeSection} />
+          <Navbar activeSection={activeSection} isHidden={isProjectOpen || isResumeOpen} />
         </div>
       )}
       
@@ -61,8 +78,16 @@ const App: React.FC = () => {
         {/* Content sections are hidden/unmounted until access is granted */}
         {accessGranted && (
           <div className="animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500">
+            <section id="about" className="py-32 px-6 max-w-7xl mx-auto">
+              <About />
+            </section>
+
             <section id="projects" className="py-32 px-6 max-w-7xl mx-auto">
-              <Projects />
+              <Projects onProjectStateChange={setIsProjectOpen} />
+            </section>
+            
+            <section id="education" className="py-32 px-6 max-w-7xl mx-auto">
+              <Education />
             </section>
 
             <section id="skills" className="py-32 px-6 max-w-7xl mx-auto">
@@ -87,10 +112,15 @@ const App: React.FC = () => {
                 <span className="font-display font-bold tracking-tighter text-xl text-white">LORI <span className="text-red-500">BATTOUK</span></span>
               </div>
               <p className="text-blue-200 text-[10px] font-bold tracking-widest uppercase">Senior Software Engineer | Built with React & Tailwind</p>
-              <div className="flex gap-8">
-                {['GitHub', 'LinkedIn', 'Resume'].map(link => (
-                  <a key={link} href="#" className="text-white/60 hover:text-red-500 transition-colors uppercase text-[10px] font-black tracking-widest">{link}</a>
-                ))}
+              <div className="flex gap-8 items-center">
+                <a href="https://github.com/LoriB14" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-red-500 transition-colors uppercase text-[10px] font-black tracking-widest hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]">GITHUB</a>
+                <a href="https://www.linkedin.com/in/loribattouk/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-red-500 transition-colors uppercase text-[10px] font-black tracking-widest hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]">LINKEDIN</a>
+                <button 
+                  onClick={() => setIsResumeOpen(true)}
+                  className="text-white/60 hover:text-red-500 transition-colors uppercase text-[10px] font-black tracking-widest hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+                >
+                  RESUME
+                </button>
               </div>
             </div>
           </footer>

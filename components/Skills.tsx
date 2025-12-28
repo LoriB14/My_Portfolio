@@ -1,137 +1,92 @@
 
-import React, { useState } from 'react';
-import { SKILLS } from '../constants';
+import React from 'react';
+import { SKILL_GROUPS } from '../constants';
+
+const Icons: Record<string, React.ReactNode> = {
+  CODE: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+    </svg>
+  ),
+  LAYOUT: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+    </svg>
+  ),
+  SERVER: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 01-2 2v4a2 2 0 012 2h14a2 2 0 012-2v-4a2 2 0 01-2-2m-2-4h.01M17 16h.01" />
+    </svg>
+  ),
+  TERMINAL: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  )
+};
 
 const Skills: React.FC = () => {
-  const [activeSkill, setActiveSkill] = useState(SKILLS[0]);
-  const [isScanning, setIsScanning] = useState(false);
-
-  // Skill-specific breakdown
-  const techDetails: Record<string, string[]> = {
-    "PYTHON / JAVA / C": ["Flask", "SQLite", "NumPy", "C (Low-Level)", "Java OOP"],
-    "JAVASCRIPT / TYPESCRIPT": ["ES6+", "Node.js", "WebAssembly", "Bun", "Deno"],
-    "SQL / POSTGRESQL": ["Drizzle ORM", "Prisma", "Relational Mapping", "Indexing"],
-    "REACT / NEXT.JS": ["Tailwind CSS", "Redux/Zustand", "NextAuth", "Server Components"],
-    "LINUX / GCP / JENKINS": ["Docker", "Google Cloud Platform", "CI/CD Automation", "GitOps"],
-    "TAILWIND / HTML / CSS": ["PostCSS", "Semantic HTML", "SASS", "Animation Keys"]
-  };
-
   return (
-    <div className="relative">
-      <div className="flex items-center gap-8 mb-24">
-        <h2 className="text-6xl font-display font-black tracking-tighter uppercase text-white">Technical <span className="text-red-600 text-glow-red">Arsenal</span></h2>
-        <div className="flex-grow h-[2px] bg-gradient-to-r from-red-600 to-transparent"></div>
+    <div className="w-full max-w-5xl mx-auto">
+      {/* Header */}
+      <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-6">
+        <div>
+           <h2 className="text-4xl font-display font-black text-white mb-2 tracking-tighter uppercase">Technical Skills</h2>
+           <p className="text-blue-200 text-xs font-bold tracking-[0.2em] uppercase">Systems · Architecture · Design</p>
+        </div>
+        <div className="hidden md:block text-right">
+            <div className="text-[10px] text-white/40 font-mono">EST. 2024</div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 bg-slate-900/50 border border-white/5 p-16 relative overflow-hidden backdrop-blur-3xl shadow-2xl">
-        <div className="absolute inset-0 pointer-events-none opacity-20 crt-scan"></div>
-
-        {/* Tactical Character Card / Viewport */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-center space-y-16 border-r border-white/5 pr-0 lg:pr-16">
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
+        {SKILL_GROUPS.map((group, index) => (
           <div 
-            onClick={() => setIsScanning(!isScanning)}
-            className="relative w-full aspect-[4/5] bg-slate-950 border-4 border-white/10 flex items-center justify-center group overflow-hidden cursor-pointer"
+            key={group.category} 
+            className="group relative bg-[#020617] p-10 hover:bg-[#050b24] transition-colors duration-500"
           >
-            {/* Background Symbols */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10">
-              <div className="w-[120%] h-[120%] border-[40px] border-red-600 rotate-12 animate-[pulse_4s_infinite]"></div>
-              <div className="absolute w-[80%] h-[80%] border-[2px] border-white -rotate-12"></div>
-            </div>
+            {/* Hover Accent Line */}
+            <div className="absolute top-0 left-0 w-[2px] h-0 bg-red-600 group-hover:h-full transition-all duration-300"></div>
 
-            {!isScanning ? (
-              <div className="relative z-10 text-center animate-in zoom-in duration-500">
-                <div className="text-white font-display font-black text-9xl tracking-tighter uppercase block mb-10 drop-shadow-[0_0_20px_rgba(239,68,68,0.4)]">
-                  {activeSkill.icon}
-                </div>
-                <div className="inline-block px-10 py-4 bg-red-600 text-white font-display font-black text-[12px] tracking-[0.6em] uppercase shadow-[0_0_50px_rgba(217,4,41,0.5)] transform hover:scale-105 transition-all">
-                  INITIATE SCAN
-                </div>
-              </div>
-            ) : (
-              <div className="relative z-10 w-full p-14 text-left animate-in fade-in slide-in-from-bottom-12 duration-700">
-                <div className="mb-12 flex items-center gap-6">
-                  <div className="w-4 h-4 bg-red-600 animate-ping"></div>
-                  <h4 className="text-[14px] font-black text-red-600 uppercase tracking-[0.8em] underline underline-offset-[12px] decoration-4">ANALYSIS_ACTIVE</h4>
-                </div>
-                
-                <div className="space-y-10">
-                  {techDetails[activeSkill.name]?.map((tech, i) => (
-                    <div key={tech} className="flex items-center justify-between group border-b border-white/10 pb-4">
-                      <span className="text-white font-display font-black text-2xl uppercase tracking-tight group-hover:text-red-500 transition-colors">{tech}</span>
-                      <span className="text-[11px] text-white/50 font-black tracking-widest uppercase">ID_MOD_{i}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <button 
-                  onClick={(e) => { e.stopPropagation(); setIsScanning(false); }}
-                  className="mt-20 text-[11px] font-black text-white/50 hover:text-white uppercase tracking-[0.6em] transition-colors border-b border-white/20 pb-2"
+            {/* Visual Anchor & Title */}
+            <div className="flex items-start justify-between mb-8">
+               <div className="flex flex-col">
+                  <h3 className="text-xl font-display font-bold text-white mb-1 tracking-tight group-hover:text-red-500 transition-colors">
+                    {group.category}
+                  </h3>
+                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                    {group.description}
+                  </p>
+               </div>
+               <div className="text-red-600 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                  {Icons[group.icon]}
+               </div>
+            </div>
+            
+            {/* Skill List */}
+            <ul className="space-y-4">
+              {group.items.map((skill) => (
+                <li 
+                  key={skill.name} 
+                  className="flex items-center group/item cursor-default"
                 >
-                  [ RESET VIEWPORT ]
-                </button>
-              </div>
-            )}
-
-            {/* Tactical Decals */}
-            <div className="absolute top-8 left-8 text-[10px] font-black text-white/40 uppercase tracking-[0.6em]">OPERATIVE_LB_V9</div>
-            <div className="absolute bottom-8 right-8 text-[10px] font-black text-red-600 uppercase tracking-[0.6em]">SYST_NOMINAL</div>
-            <div className="absolute top-0 left-0 w-20 h-20 border-t-8 border-l-8 border-red-600"></div>
-            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-8 border-r-8 border-white/20"></div>
-          </div>
-
-          <div className="text-center w-full space-y-6">
-            <h3 className="text-5xl font-display font-black text-white uppercase tracking-tighter">{activeSkill.name}</h3>
-            <div className="flex justify-center gap-3">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                <div key={i} className={`h-3 w-12 transition-all duration-700 ${i <= Math.ceil(activeSkill.level/12.5) ? 'bg-red-600 shadow-[0_0_15px_#D90429]' : 'bg-slate-800'}`}></div>
+                  <span className="w-1.5 h-1.5 bg-white/10 rounded-full mr-4 group-hover/item:bg-red-600 transition-colors"></span>
+                  <span className="text-base text-slate-300 font-medium group-hover/item:text-white transition-colors">
+                    {skill.name}
+                  </span>
+                  
+                  {/* Micro-descriptor tooltip style */}
+                  {skill.desc && (
+                    <span className="ml-3 text-[10px] font-mono text-blue-400 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 uppercase tracking-wider">
+                      // {skill.desc}
+                    </span>
+                  )}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        </div>
-
-        {/* Loadout Selection List */}
-        <div className="lg:col-span-7 space-y-16 pl-0 lg:pl-16 flex flex-col justify-center">
-          {SKILLS.map((skill) => (
-            <div 
-              key={skill.name} 
-              onMouseEnter={() => {
-                setActiveSkill(skill);
-                setIsScanning(false);
-              }}
-              className={`relative group cursor-pointer transition-all border-b border-white/5 pb-12 ${activeSkill.name === skill.name ? 'opacity-100' : 'opacity-20 hover:opacity-40'}`}
-            >
-              <div className="flex justify-between items-end">
-                <div className="flex flex-col gap-4">
-                  <span className="font-display font-black text-3xl text-white uppercase tracking-[0.2em] group-hover:text-red-600 transition-colors">{skill.name}</span>
-                  <div className="flex gap-3">
-                    {[1, 2, 3, 4].map(i => (
-                      <div key={i} className={`w-4 h-4 rotate-45 ${i <= Math.ceil(skill.level/25) ? 'bg-red-600 shadow-[0_0_10px_#D90429]' : 'bg-slate-800'}`}></div>
-                    ))}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <span className="font-display font-black text-6xl text-white/90 tracking-tighter">{skill.level}</span>
-                  <span className="block text-[10px] font-black text-white/50 tracking-[0.6em] uppercase mt-2">Power Integrity</span>
-                </div>
-              </div>
-              
-              {activeSkill.name === skill.name && (
-                <div className="absolute -left-16 top-1/2 -translate-y-1/2 w-6 h-6 bg-red-600 rotate-45 animate-pulse shadow-[0_0_20px_#D90429]"></div>
-              )}
-            </div>
-          ))}
-
-          <div className="pt-24 grid grid-cols-2 gap-14">
-            <div className="bg-slate-950 p-12 border border-white/5 hover:border-red-600 transition-all cursor-crosshair">
-              <div className="text-[12px] text-white/60 font-black uppercase tracking-[0.6em] mb-6">Core Specialization</div>
-              <p className="text-white font-display font-black uppercase text-lg leading-tight tracking-widest">Scalable Full-Stack Neural Systems</p>
-            </div>
-            <div className="bg-slate-950 p-12 border border-white/5 hover:border-red-600 transition-all cursor-crosshair">
-              <div className="text-[12px] text-white/60 font-black uppercase tracking-[0.6em] mb-6">Strategic Ops</div>
-              <p className="text-white font-display font-black uppercase text-lg leading-tight tracking-widest">High-Performance Interaction Eng</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
