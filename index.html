@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lori Battouk | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bloody-red: #D90429; /* Darker Neon Red */
+            --baby-blue: #0ea5e9;
+            --navy-deep: #020617;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--navy-deep);
+            color: #ffffff;
+            overflow-x: hidden;
+            cursor: none;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .cyber-grid {
+            background-image: 
+                linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 80px 80px;
+        }
+        #custom-cursor {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--baby-blue);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s;
+            mix-blend-mode: normal;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #custom-cursor::before {
+            content: '';
+            width: 2px;
+            height: 10px;
+            background: var(--baby-blue);
+            position: absolute;
+            top: -5px;
+        }
+        #custom-cursor::after {
+            content: '';
+            width: 10px;
+            height: 2px;
+            background: var(--baby-blue);
+            position: absolute;
+            left: -5px;
+        }
+        #custom-cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--bloody-red);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 10px var(--bloody-red);
+        }
+        .flicker {
+            animation: flicker 2s infinite;
+        }
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0; }
+        }
+        .text-glow-red {
+            text-shadow: 0 0 10px rgba(217, 4, 41, 0.8), 0 0 20px rgba(217, 4, 41, 0.4);
+        }
+        .text-glow-blue {
+            text-shadow: 0 0 10px rgba(14, 165, 233, 0.8), 0 0 20px rgba(14, 165, 233, 0.4);
+        }
+        .crt-scan {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 90;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+    <div class="crt-scan"></div>
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        const cursorDot = document.getElementById('custom-cursor-dot');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 20 + 'px';
+            cursor.style.top = e.clientY - 20 + 'px';
+            cursorDot.style.left = e.clientX - 2 + 'px';
+            cursorDot.style.top = e.clientY - 2 + 'px';
+        });
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'scale(0.8) rotate(45deg)';
+            cursor.style.borderColor = '#ef4444';
+        });
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1) rotate(0deg)';
+            cursor.style.borderColor = '#0ea5e9';
+        });
+    </script>
+</body>
+</html>

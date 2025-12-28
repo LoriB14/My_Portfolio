@@ -1,0 +1,7 @@
+{
+  "name": "Lori Battouk | Interactive Portfolio",
+  "description": "A high-end, gaming-inspired personal portfolio for Lori Battouk, featuring interactive start screens, tactical skill loadouts, and mission-style project archives.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
