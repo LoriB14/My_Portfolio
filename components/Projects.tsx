@@ -67,7 +67,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
         {/* HEADER */}
         <div className="mb-16 border-l-4 border-fuchsia-600 pl-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-2 tracking-tight">Projects</h2>
-            <p className="text-white/50 text-sm font-bold tracking-widest uppercase">Mission Archive</p>
+            
         </div>
 
         {/* CAROUSEL WRAPPER */}
