@@ -85,7 +85,7 @@ const GeminiAssistant: React.FC = () => {
   return (
     <div className="fixed z-[60]" style={isOpen && position ? { left: position.x, top: position.y } : { bottom: 32, right: 32 }}>
       {isOpen ? (
-        <div className="w-80 md:w-96 bg-slate-950/90 backdrop-blur-xl border border-fuchsia-500/30 rounded-lg flex flex-col shadow-[0_0_40px_-5px_rgba(192,38,211,0.3)] overflow-hidden transition-shadow duration-300">
+        <div className="w-72 sm:w-80 md:w-96 bg-slate-950/90 backdrop-blur-xl border border-fuchsia-500/30 rounded-lg flex flex-col shadow-[0_0_40px_-5px_rgba(192,38,211,0.3)] overflow-hidden transition-shadow duration-300">
           {/* Header - Draggable */}
           <div 
             className="bg-slate-900/80 p-4 border-b border-fuchsia-600/30 flex justify-between items-center cursor-move select-none"
@@ -148,10 +148,10 @@ const GeminiAssistant: React.FC = () => {
              // Ensure position is set when opening if it was null
              if (!position) setPosition({ x: window.innerWidth - 350, y: window.innerHeight - 500 });
           }}
-          className="group relative w-16 h-16 bg-slate-950 border border-fuchsia-500/50 flex items-center justify-center shadow-[0_0_30px_rgba(192,38,211,0.3)] transition-all hover:scale-110 active:scale-95 rounded-full overflow-hidden"
+          className="group relative w-12 h-12 sm:w-16 sm:h-16 bg-slate-950 border border-fuchsia-500/50 flex items-center justify-center shadow-[0_0_30px_rgba(192,38,211,0.3)] transition-all hover:scale-110 active:scale-95 rounded-full overflow-hidden"
         >
           <div className="absolute inset-0 bg-fuchsia-600 opacity-10 group-hover:opacity-20 transition-opacity animate-pulse"></div>
-          <div className="relative z-10 text-xl font-display font-black text-fuchsia-100 group-hover:text-white">AI</div>
+          <div className="relative z-10 text-lg sm:text-xl font-display font-black text-fuchsia-100 group-hover:text-white">AI</div>
         </button>
       )}
     </div>

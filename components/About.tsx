@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="flex items-center gap-8 mb-16">
-        <h2 className="text-5xl md:text-7xl font-display font-black tracking-tighter uppercase text-white">About Me</h2>
+        <h2 className="text-3xl sm:text-2xl sm:text-3xl md:text-4xl md:text-5xl md:text-7xl font-display font-black tracking-tighter uppercase text-white">About Me</h2>
         <div className="flex-grow h-[2px] bg-gradient-to-r from-fuchsia-600 to-transparent"></div>
       </div>
 
@@ -55,11 +55,11 @@ const About: React.FC = () => {
 
                  <div className="mt-10 grid grid-cols-2 gap-6">
                      <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition-colors">
-                         <div className="text-4xl md:text-5xl font-display font-black text-white mb-2">4+</div>
+                         <div className="text-2xl sm:text-3xl md:text-4xl md:text-3xl sm:text-2xl sm:text-3xl md:text-4xl md:text-5xl font-display font-black text-white mb-2">4+</div>
                          <div className="text-xs uppercase tracking-[0.2em] text-white/80 font-bold">Projects Built</div>
                      </div>
                       <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition-colors">
-                         <div className="text-4xl md:text-5xl font-display font-black text-white mb-2">2024</div>
+                         <div className="text-2xl sm:text-3xl md:text-4xl md:text-3xl sm:text-2xl sm:text-3xl md:text-4xl md:text-5xl font-display font-black text-white mb-2">2024</div>
                          <div className="text-xs uppercase tracking-[0.2em] text-white/80 font-bold">Start Date</div>
                      </div>
                  </div>

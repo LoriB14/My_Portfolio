@@ -93,7 +93,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                 <div 
                 key={project.id}
                 onClick={() => openProject(project)}
-                className="snap-start flex-none w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] relative group cursor-pointer h-auto md:h-[520px] transition-all duration-200 active:scale-95"
+                className="snap-start flex-none w-full sm:w-[calc(50%-1rem)] relative group cursor-pointer h-auto sm:h-[420px] transition-all duration-200 active:scale-95"
                 >
                     {/* --- FOCUS FRAME CORNERS --- */}
                     {/* Top Left */}
@@ -119,7 +119,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
 
                         {/* INFO */}
                         <div className="flex flex-col flex-grow items-start text-left">
-                            <h3 className="text-3xl font-display font-bold text-white mb-2 tracking-tight group-hover:text-fuchsia-500 transition-colors">
+                            <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-2 tracking-tight group-hover:text-fuchsia-500 transition-colors">
                                 {project.title}
                             </h3>
                             
@@ -177,7 +177,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
            {/* FIXED CLOSE BUTTON - TOP RIGHT */}
            <button 
              onClick={closeProject}
-             className="fixed top-8 right-8 z-[70] flex items-center gap-3 bg-slate-900/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 hover:border-fuchsia-600 hover:bg-fuchsia-600/10 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(192,38,211,0.4)]"
+             className="fixed top-4 right-4 sm:top-8 sm:right-8 z-[70] flex items-center gap-2 sm:gap-3 bg-slate-900/80 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-3 rounded-full border border-white/10 hover:border-fuchsia-600 hover:bg-fuchsia-600/10 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(192,38,211,0.4)]"
            >
              <span className="text-white font-bold tracking-widest text-sm group-hover:text-fuchsia-500 transition-colors">CLOSE</span>
              <span className="text-white/50 group-hover:text-white transition-colors text-lg">✕</span>
@@ -188,8 +188,8 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
               
               {/* HEADER AREA */}
               <div className="mb-12 animate-in slide-in-from-bottom-4 duration-700">
-                  <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-4">{selectedProject.title}</h1>
-                  <div className="flex items-center gap-4 text-lg md:text-xl font-bold">
+                  <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter mb-4">{selectedProject.title}</h1>
+                  <div className="flex items-center gap-4 text-base sm:text-lg md:text-xl font-bold">
                       <span className="text-fuchsia-600 tracking-wider uppercase">{selectedProject.category}</span>
                       <span className="w-2 h-2 bg-white/20 rounded-full"></span>
                       <span className="text-slate-300">{selectedProject.role}</span>
@@ -216,7 +216,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                   <div className="lg:col-span-2 space-y-12">
                       <div>
                         <h3 className="text-2xl font-bold text-white mb-6">Overview</h3>
-                        <p className="text-xl text-slate-200 font-medium leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl text-slate-200 font-medium leading-relaxed">
                             {selectedProject.detailedDescription || selectedProject.description}
                         </p>
                       </div>
@@ -278,21 +278,21 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                       {/* ACTIONS */}
                       <div className="flex flex-col gap-5 pt-4">
                           {selectedProject.demoUrl ? (
-                            <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer" className="w-full py-5 bg-white text-black font-black text-center rounded-lg hover:bg-fuchsia-600 hover:text-white transition-all uppercase tracking-widest text-sm shadow-lg hover:shadow-[0_0_20px_rgba(192,38,211,0.6)] transform hover:-translate-y-1">
+                            <a href={selectedProject.demoUrl} target="_blank" rel="noopener noreferrer" className="w-full py-3 sm:py-5 bg-white text-black font-black text-center rounded-lg hover:bg-fuchsia-600 hover:text-white transition-all uppercase tracking-widest text-sm shadow-lg hover:shadow-[0_0_20px_rgba(192,38,211,0.6)] transform hover:-translate-y-1">
                                 Live Demo
                             </a>
                           ) : (
-                            <button disabled className="w-full py-5 bg-slate-900 border border-white/10 text-white/40 font-black text-center rounded-lg cursor-not-allowed uppercase tracking-widest text-sm">
+                            <button disabled className="w-full py-3 sm:py-5 bg-slate-900 border border-white/10 text-white/40 font-black text-center rounded-lg cursor-not-allowed uppercase tracking-widest text-sm">
                                 {selectedProject.category.includes('COMING SOON') ? 'IN DEVELOPMENT' : 'PRIVATE / CLASSIFIED'}
                             </button>
                           )}
                           
                           {selectedProject.repoUrl ? (
-                            <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer" className="w-full py-5 bg-transparent border-2 border-white/20 text-white font-black text-center rounded-lg hover:bg-white/10 hover:border-white transition-all uppercase tracking-widest text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transform hover:-translate-y-1">
+                            <a href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer" className="w-full py-3 sm:py-5 bg-transparent border-2 border-white/20 text-white font-black text-center rounded-lg hover:bg-white/10 hover:border-white transition-all uppercase tracking-widest text-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transform hover:-translate-y-1">
                                 Source Code
                             </a>
                           ) : (
-                            <button disabled className="w-full py-5 bg-transparent border border-white/5 text-white/20 font-black text-center rounded-lg cursor-not-allowed uppercase tracking-widest text-sm">
+                            <button disabled className="w-full py-3 sm:py-5 bg-transparent border border-white/5 text-white/20 font-black text-center rounded-lg cursor-not-allowed uppercase tracking-widest text-sm">
                                 SOURCE LOCKED
                             </button>
                           )}

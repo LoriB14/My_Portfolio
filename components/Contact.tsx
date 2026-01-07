@@ -13,14 +13,14 @@ const Contact: React.FC = () => {
   return (
     <div className="relative">
       <div className="flex items-center gap-6 mb-16">
-        <h2 className="text-5xl font-display font-black tracking-tighter uppercase text-white">Contact Me</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tighter uppercase text-white">Contact Me</h2>
         <div className="flex-grow h-[1px] bg-gradient-to-r from-fuchsia-600/50 to-transparent"></div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         <div className="space-y-12">
           <div>
-            <h3 className="text-3xl font-display font-black text-white mb-6 uppercase tracking-tight">Get In Touch</h3>
+            <h3 className="text-2xl sm:text-3xl font-display font-black text-white mb-6 uppercase tracking-tight">Get In Touch</h3>
             <p className="text-purple-100 leading-relaxed max-w-lg text-lg">
               Have a question, an opportunity, or just want to say hello? My inbox is always open. Feel free to reach out anytime.
             </p>
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900/50 p-10 border border-white/10 relative backdrop-blur-sm">
+        <div className="bg-slate-900/50 p-6 sm:p-10 border border-white/10 relative backdrop-blur-sm">
           <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-fuchsia-600"></div>
           <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-purple-400"></div>
           
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
                 <textarea required rows={4} placeholder="MESSAGE..." className="w-full bg-slate-950 border border-white/10 focus:border-fuchsia-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all resize-none placeholder-white/30"></textarea>
               </div>
               
-              <button type="submit" disabled={status === 'sending'} className="w-full bg-white text-slate-950 font-display font-black py-5 uppercase tracking-[0.4em] hover:bg-fuchsia-600 hover:text-white transition-all text-sm">
+              <button type="submit" disabled={status === 'sending'} className="w-full bg-white text-slate-950 font-display font-black py-3 sm:py-5 uppercase tracking-[0.4em] hover:bg-fuchsia-600 hover:text-white transition-all text-sm">
                 {status === 'sending' ? 'TRANSMITTING...' : 'SEND MESSAGE'}
               </button>
             </form>
