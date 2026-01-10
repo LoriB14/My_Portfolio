@@ -10,9 +10,9 @@ export const PROJECTS: Project[] = [
     title: "6IXASSIST",
     category: "AI / GEOLOCATION",
     image: sixAssistLogo,
-    tags: ["React", "Gemini API", "OpenStreetMap", "TypeScript"],
-    description: "Winner of 1st Place at ElleHacks Hackathon. An AI-powered lifeline connecting Toronto residents to vital community resources.",
-    detailedDescription: "Uses natural language processing to instantly map needs to real-time shelter and food bank data, bridging the gap for those in crisis. It simplifies complex service databases into an accessible, lifeline interface for the community.",
+    tags: ["Gemini API", "OpenStreetMap", "React", "Tailwind CSS", "TypeScript"],
+    description: "An AI‑powered resource finder that helps people in Toronto locate nearby food banks, shelters, and community services by typing natural‑language requests.",
+    detailedDescription: "Nov 2025 — Won 1st Place at ElleHacks for concept + implementation. The app converts free‑form questions (e.g., ‘I need food near Yonge & Bloor’) into structured intents using the Gemini API, then geocodes and ranks resources with OpenStreetMap/Leaflet before rendering routes and options on an accessible map UI. Built with React + Tailwind for a responsive experience and engineered with an offline‑aware cache so critical data remains available on spotty networks. Planned enhancements include real‑time update feeds and multi‑language support for broader accessibility.",
     features: [
       "Natural Language Search",
       "Real-time Geolocation Routing",
@@ -21,7 +21,7 @@ export const PROJECTS: Project[] = [
     ],
     role: "Lead Developer",
     status: "Live / Maintained",
-    technicalDetails: "Built using React and the Gemini API for intent classification. The mapping system uses Leaflet with custom tiles for accessibility. We implemented a custom caching layer to ensure critical resource data remains available even with poor internet connectivity.",
+    technicalDetails: "React front end + Gemini for intent classification. Mapping via Leaflet/OpenStreetMap with accessible tiles. A small cache layer keeps critical resource data available offline and handles degraded connectivity.",
     demoUrl: "#",
     repoUrl: "#"
   },
@@ -30,9 +30,9 @@ export const PROJECTS: Project[] = [
     title: "PEGASUS",
     category: "E-COMMERCE",
     image: pegasusLogo,
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    description: "A futuristic, high-velocity e-commerce interface designed for the next generation of digital retail.",
-    detailedDescription: "Source code is private. Pegasus is a cutting-edge e-commerce platform engineered for speed and seamless user interaction. It features a fully responsive product catalog, dynamic cart management, and a streamlined checkout flow. Designed with a modern, minimalist aesthetic, it delivers a premium shopping experience across all devices.",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
+    description: "A clean, fast storefront with real‑time cart updates, simple product filters, and a frictionless checkout — designed to feel quick and intuitive on any device.",
+    detailedDescription: "Source is private. Built with Next.js and Tailwind CSS, the app uses SSR/ISR for product pages to balance freshness with speed, plus a scoped client‑side cart for snappy interactions. The UI follows accessible patterns and a consistent design system. Deployed on Vercel for global edge caching, low latency, and auto‑scaling. Performance budgets and monitoring keep the experience responsive as the catalog grows.",
     features: [
       "Modern Responsive UI",
       "Real-time Cart Management",
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
     ],
     role: "Full Stack Developer",
     status: "Live Deployment",
-    technicalDetails: "Deployed on Vercel for maximum performance and scalability. The application leverages Next.js for server-side rendering and efficient data fetching, while Tailwind CSS ensures a consistent and adaptive design system. The architecture is built to handle high traffic with minimal latency.",
+    technicalDetails: "Next.js (App Router) with server‑side rendering and incremental static regeneration. Tailwind CSS design system, Lighthouse‑friendly performance budgets. Hosted on Vercel for automatic scaling and CDN edge caching.",
     demoUrl: "https://pegasus-zeta.vercel.app/",
     repoUrl: "" 
   },
@@ -50,9 +50,9 @@ export const PROJECTS: Project[] = [
     title: "PACKPAL 🚧",
     category: "AI / TRAVEL (COMING SOON)",
     image: packPalLogo,
-    tags: ["Next.js", "TypeScript", "Gemini 2.5", "PostgreSQL"],
-    description: "AI-powered travel packing assistant creating smart lists based on trip details.",
-    detailedDescription: "PackPal is an intelligent travel companion that generates personalized packing checklists using Gemini 2.5. By analyzing weather forecasts, trip duration, and destination activities, it ensures travelers never leave essentials behind. Features include secure authentication and collaborative list editing.",
+    tags: ["Next.js", "Gemini 2.5", "NextAuth", "TypeScript", "Drizzle ORM", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    description: "An AI‑powered packing assistant that builds smart checklists from your trip details, weather, and planned activities — so you pack exactly what you need.",
+    detailedDescription: "Oct 2025 — Developed a Next.js + TypeScript app that uses Gemini 2.5 to generate personalized packing lists based on destination, dates, forecast, and itinerary. Implemented secure authentication with NextAuth and modeled data using Drizzle ORM on PostgreSQL. Added collaborative planning and real‑time checklist sync via Next.js Server Actions. Deployed on Vercel with a custom GoDaddy domain for demos (NewHacks 2025).",
     features: [
       "Smart Packing Lists (Gemini 2.5)",
       "Weather Integration",
@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     ],
     role: "Full Stack Developer",
     status: "In Progress",
-    technicalDetails: "Built with Next.js and TypeScript. Uses NextAuth for secure authentication and Drizzle ORM with PostgreSQL for robust data management. Real-time updates utilize Next.js Server Actions. Deployed on Vercel.",
+    technicalDetails: "Next.js + TypeScript. NextAuth for auth, Drizzle ORM + PostgreSQL for persistence. Server Actions for real‑time data refresh. Target deployment on Vercel.",
     demoUrl: "",
     repoUrl: ""
   },
@@ -70,9 +70,9 @@ export const PROJECTS: Project[] = [
     title: "GO STATION TRACKER",
     category: "DATA VISUALIZATION (COMING SOON)",
     image: "https://placehold.co/800x450/FFFFFF/c026d3/png?text=COMING+SOON&font=montserrat",
-    tags: ["Python", "Flask", "SQLite", "JavaScript"],
-    description: "Real-time parking availability dashboard for commuters.",
-    detailedDescription: "A high-performance dashboard designed to streamline the daily commute. It aggregates data from various GO Transit infrastructure endpoints to provide a real-time visualization of parking availability across the network, helping commuters plan their arrival times better.",
+    tags: ["Python", "Flask", "SQLite", "Chart.js", "JavaScript", "HTML/CSS"],
+    description: "A simple, clear dashboard that shows parking availability at GO stations using the lot numbers posted on site — helping commuters find open spots faster.",
+    detailedDescription: "Sept 2025 — Created a parking lot tracker that pulls real‑time data from existing public sources and maps it to the lot IDs commuters already recognize. The Flask backend schedules ingestion and normalizes data into SQLite, exposing a small REST API. The frontend presents open vs. occupied lots and historical capacity trends with Chart.js. Designed for clarity and quick decision‑making on the way to the station.",
     features: [
       "Real-time Data Polling",
       "Historical Trend Analysis",
@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     ],
     role: "Solo Developer",
     status: "Archived",
-    technicalDetails: "Backend built with Flask serving a REST API. A background scheduler handles data ingestion from public transit APIs, normalizing the data into SQLite. The frontend uses Chart.js for rendering historical trends and immediate availability metrics.",
+    technicalDetails: "Flask REST API with a background scheduler for data ingestion, SQLite for storage, Chart.js for visualization.",
     demoUrl: "",
     repoUrl: ""
   }

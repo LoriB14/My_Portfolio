@@ -34,9 +34,6 @@ const Skills: React.FC = () => {
            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-2 tracking-tighter uppercase">Technical Skills</h2>
            <p className="text-purple-200 text-xs font-bold tracking-[0.2em] uppercase">Systems · Architecture · Design</p>
         </div>
-        <div className="hidden md:block text-right">
-            <div className="text-[10px] text-white/40 font-mono">EST. 2024</div>
-        </div>
       </div>
 
       {/* Grid Layout */}

@@ -66,8 +66,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
       <div className={`transition-all duration-500 ${selectedProject ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100 scale-100'}`}>
         {/* HEADER */}
         <div className="mb-16 border-l-4 border-fuchsia-600 pl-6">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-2 tracking-tight">Projects</h2>
-            
+          <h2 className="text-4xl font-display font-bold text-white mb-2 tracking-tight">Projects</h2>
         </div>
 
         {/* CAROUSEL WRAPPER */}

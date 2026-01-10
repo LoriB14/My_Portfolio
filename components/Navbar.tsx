@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
     { id: 'projects', label: 'PROJECTS' },
     { id: 'education', label: 'EDUCATION' },
     { id: 'skills', label: 'SKILLS' },
-    { id: 'contact', label: 'CONTACT' },
+    // Removed inline CONTACT nav item; corner button remains
   ];
 
   const scrollTo = (id: string) => {
@@ -30,15 +30,15 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center bg-slate-950/80 backdrop-blur-2xl border-b border-white/10 transition-transform duration-500 ease-in-out ${isHidden ? '-translate-y-32' : 'translate-y-0'}`}>
-      <div className="flex items-center gap-4 group cursor-pointer" onClick={resetToHome}>
+      <div className="flex items-center gap-5 group cursor-pointer" onClick={resetToHome}>
         <div className="relative">
-          <div className="w-12 h-12 border-2 border-fuchsia-600 flex items-center justify-center transition-all group-hover:bg-fuchsia-600 group-hover:rotate-45 duration-500 group-hover:shadow-[0_0_15px_#c026d3]">
-            <span className="font-display font-black text-white text-xl group-hover:-rotate-45 transition-transform">LB</span>
+          <div className="w-16 h-16 border-2 border-fuchsia-600 flex items-center justify-center transition-all group-hover:bg-fuchsia-600 group-hover:rotate-45 duration-500 group-hover:shadow-[0_0_15px_#c026d3]">
+            <span className="font-display font-black text-white text-2xl group-hover:-rotate-45 transition-transform">LB</span>
           </div>
         </div>
         <div className="hidden sm:block">
-          <h1 className="font-display font-bold tracking-tighter text-2xl leading-none uppercase text-white">Lori <span className="text-fuchsia-500 text-glow-fuchsia">Battouk</span></h1>
-          <p className="text-[9px] tracking-[0.3em] font-bold text-purple-300 uppercase mt-1">Computer Science @ York</p>
+          <h1 className="font-display font-bold tracking-tighter text-3xl leading-none uppercase text-white">Lori <span className="text-fuchsia-500 text-glow-fuchsia">Battouk</span></h1>
+          <p className="text-[10px] tracking-[0.3em] font-bold text-purple-300 uppercase mt-1">Computer Science @ York</p>
         </div>
       </div>
 

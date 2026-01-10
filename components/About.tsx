@@ -54,14 +54,10 @@ const About: React.FC = () => {
                  </div>
 
                  <div className="mt-10 grid grid-cols-2 gap-6">
-                     <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition-colors">
-                         <div className="text-2xl sm:text-3xl md:text-4xl md:text-3xl sm:text-2xl sm:text-3xl md:text-4xl md:text-5xl font-display font-black text-white mb-2">4+</div>
-                         <div className="text-xs uppercase tracking-[0.2em] text-white/80 font-bold">Projects Built</div>
-                     </div>
-                      <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition-colors">
-                         <div className="text-2xl sm:text-3xl md:text-4xl md:text-3xl sm:text-2xl sm:text-3xl md:text-4xl md:text-5xl font-display font-black text-white mb-2">2024</div>
-                         <div className="text-xs uppercase tracking-[0.2em] text-white/80 font-bold">Start Date</div>
-                     </div>
+                   <div className="bg-white/5 p-6 rounded-xl border border-white/10 text-center hover:bg-white/10 transition-colors">
+                     <div className="text-4xl md:text-5xl font-display font-black text-white mb-2">4+</div>
+                     <div className="text-xs uppercase tracking-[0.2em] text-white/80 font-bold">Projects Built</div>
+                   </div>
                  </div>
             </div>
         </div>
