@@ -629,9 +629,9 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
         className={`absolute inset-0 z-0 pointer-events-none transition-opacity duration-1000 ${gameActive ? 'opacity-100' : 'opacity-0'}`}
       />
 
-      {/* GAME HUD (Visible during active gameplay) */}
+      {/* GAME HUD (Visible during active gameplay) - Desktop Only */}
       {(gameState === 'playing' || gameState === 'gameover') && (
-        <div className="fixed inset-0 pointer-events-none z-50 p-8">
+        <div className="hidden md:block fixed inset-0 pointer-events-none z-50 p-8">
            {/* Top Bar */}
            <div className="absolute top-8 left-8 flex flex-col gap-1">
               <span className="text-purple-300 text-[10px] font-black tracking-[0.4em] uppercase">SCORE</span>
@@ -666,9 +666,9 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
         </div>
       )}
 
-      {/* BRIEFING SCREEN (Gatekeeper Mode) */}
+      {/* BRIEFING SCREEN (Gatekeeper Mode) - Desktop Only */}
       {isLocked && gameState === 'briefing' && (
-        <div className="relative z-20 text-center px-6 animate-in zoom-in duration-500">
+        <div className="hidden md:block relative z-20 text-center px-6 animate-in zoom-in duration-500">
            {/* Floating Orb Icon */}
            <div className="w-20 h-20 mx-auto bg-gradient-to-tr from-fuchsia-500 to-purple-600 rounded-full animate-bounce opacity-80 mb-8 absolute top-0 left-1/2 -translate-x-1/2 shadow-[0_0_30px_rgba(192,38,211,0.5)]"></div>
 
@@ -705,6 +705,29 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
         </div>
       )}
 
+      {/* MOBILE ONLY - Skip game message */}
+      {isLocked && (
+        <div className="md:hidden relative z-20 text-center px-6 max-w-lg mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-display font-black tracking-tighter mb-8 leading-none text-white">
+            LORI <br />
+            <span className="text-white">BATTOUK</span>
+          </h1>
+          
+          <div className="bg-slate-900/90 border border-white/10 p-6 backdrop-blur-md mb-8 rounded-xl">
+            <p className="text-purple-100 text-sm leading-relaxed mb-4">
+              The game is only accessible on desktop.
+            </p>
+          </div>
+          
+          <button 
+            onClick={handleUnlock}
+            className="w-full py-4 bg-fuchsia-600 text-white font-display font-black text-sm tracking-[0.3em] uppercase hover:bg-white hover:text-fuchsia-600 transition-all border-2 border-fuchsia-600"
+          >
+            CONTINUE TO PORTFOLIO
+          </button>
+        </div>
+      )}
+
       {/* EXIT BUTTON (Only for Active Play) */}
       {gameActive && gameState !== 'gameover' && (
         <div className="fixed bottom-12 left-1/2 -translate-x-1/2 z-[60] pointer-events-auto">
@@ -717,9 +740,9 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
         </div>
       )}
 
-      {/* GAME OVER SCREEN */}
+      {/* GAME OVER SCREEN - Desktop Only */}
       {gameState === 'gameover' && (
-             <div className="absolute inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm pointer-events-auto animate-in zoom-in duration-300 z-50">
+             <div className="hidden md:flex absolute inset-0 items-center justify-center bg-black/80 backdrop-blur-sm pointer-events-auto animate-in zoom-in duration-300 z-50">
                <div className="text-center space-y-8">
                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black text-fuchsia-600 uppercase tracking-tighter drop-shadow-[0_0_30px_#c026d3]">System Failure</h2>
                  <div className="flex flex-col gap-2">
@@ -754,21 +777,21 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
             <span className="text-white">BATTOUK</span>
           </h1>
           
-          <p className="max-w-4xl mx-auto text-purple-100 text-2xl md:text-3xl font-light mb-24 leading-relaxed tracking-wider">
+          <p className="max-w-4xl mx-auto text-purple-100 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-12 sm:mb-16 md:mb-24 leading-relaxed tracking-wider">
             Crafting high-precision software with a signature modern aesthetic.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-16 mb-20 pointer-events-auto">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 mb-20 pointer-events-auto">
             <button 
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative px-16 py-8 bg-fuchsia-600 text-white font-display font-black text-xl tracking-[0.5em] uppercase transition-all hover:bg-white hover:text-fuchsia-600 border-4 border-fuchsia-600"
+              className="group relative px-8 py-4 sm:px-12 sm:py-6 md:px-16 md:py-8 bg-fuchsia-600 text-white font-display font-black text-sm sm:text-lg md:text-xl tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em] uppercase transition-all hover:bg-white hover:text-fuchsia-600 border-2 sm:border-3 md:border-4 border-fuchsia-600"
             >
               PROJECTS
             </button>
             
             <button 
               onClick={startGame}
-              className="px-16 py-8 border-4 border-white/20 text-white font-display font-black text-xl tracking-[0.5em] uppercase transition-all hover:border-fuchsia-600 hover:text-fuchsia-600"
+              className="hidden md:block px-16 py-8 border-4 border-white/20 text-white font-display font-black text-xl tracking-[0.5em] uppercase transition-all hover:border-fuchsia-600 hover:text-fuchsia-600"
             >
               PLAY ASTRO BIT
             </button>
