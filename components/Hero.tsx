@@ -772,13 +772,13 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
       {!isLocked && !gameActive && (
         <div className={`relative z-10 text-center px-6 max-w-6xl mx-auto pointer-events-none transition-all duration-700 animate-in fade-in zoom-in-95`}>
           
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter mb-12 leading-none text-white text-glow-fuchsia">
-            LORI <br />
-            <span className="text-white">BATTOUK</span>
+          <h1 className="font-display font-black tracking-tighter mb-12 leading-none text-white text-glow-fuchsia">
+            <span className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl block">LORI</span>
+            <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl block text-white">BATTOUK</span>
           </h1>
           
           <p className="max-w-4xl mx-auto text-purple-100 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-12 sm:mb-16 md:mb-24 leading-relaxed tracking-wider">
-            Crafting high-precision software with a signature modern aesthetic.
+            Building software that's intentional, thoughtful, and made to have real impact.
           </p>
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 mb-20 pointer-events-auto">

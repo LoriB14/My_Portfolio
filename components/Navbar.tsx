@@ -15,6 +15,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
     { id: 'projects', label: 'PROJECTS' },
     { id: 'education', label: 'EDUCATION' },
     { id: 'skills', label: 'SKILLS' },
+  ];
+  
+  // Mobile menu includes contact
+  const mobileNavItems = [
+    ...navItems,
     { id: 'contact', label: 'CONTACT' },
   ];
 
@@ -47,12 +52,13 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
         </div>
       </div>
 
-      <div className="hidden lg:flex gap-10">
+      {/* Centered Nav Items */}
+      <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 gap-10">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
-            className={`font-display text-[11px] tracking-[0.2em] font-bold transition-all hover:text-fuchsia-400 relative py-2 hover:shadow-[0_0_10px_rgba(192,38,211,0.2)] ${
+            className={`font-display text-base tracking-[0.2em] font-bold transition-all hover:text-fuchsia-400 relative py-2 hover:shadow-[0_0_10px_rgba(192,38,211,0.2)] ${
               activeSection === item.id ? 'text-fuchsia-500' : 'text-white'
             }`}
           >
@@ -65,10 +71,10 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
       </div>
 
       <div className="flex items-center gap-4 sm:gap-8">
-        {/* Desktop Contact Button */}
+        {/* Purple Contact Button - Desktop Only */}
         <button 
           onClick={() => scrollTo('contact')}
-          className="hidden lg:block bg-fuchsia-600 text-white px-8 py-3 font-display font-black text-[10px] tracking-[0.3em] uppercase hover:bg-white hover:text-fuchsia-600 transition-all border-2 border-fuchsia-600 shadow-[0_0_20px_rgba(192,38,211,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]"
+          className="hidden lg:block bg-purple-600 text-white px-6 py-3 font-display font-black text-sm tracking-[0.2em] uppercase hover:bg-purple-700 transition-all border-2 border-purple-600 shadow-[0_0_20px_rgba(147,51,234,0.5)]"
         >
           CONTACT
         </button>
@@ -94,7 +100,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
     {mobileMenuOpen && (
       <div className="lg:hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)}>
         <div className="flex flex-col items-center justify-center h-full gap-6 px-6">
-          {navItems.map((item) => (
+          {mobileNavItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
