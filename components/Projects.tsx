@@ -66,7 +66,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
       <div className={`transition-all duration-500 ${selectedProject ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100 scale-100'}`}>
         {/* HEADER */}
         <div className="mb-16 border-l-4 border-fuchsia-600 pl-6">
-          <h2 className="text-4xl font-display font-bold text-white mb-2 tracking-tight">Projects</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-2 tracking-tight">Projects</h2>
         </div>
 
         {/* CAROUSEL WRAPPER */}
@@ -92,7 +92,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                 <div 
                 key={project.id}
                 onClick={() => openProject(project)}
-                className="snap-start flex-none w-full sm:w-[calc(50%-1rem)] relative group cursor-pointer h-auto sm:h-[420px] transition-all duration-200 active:scale-95"
+                className="snap-start flex-none w-full sm:w-[calc(50%-1rem)] relative group cursor-pointer transition-all duration-200 active:scale-95"
                 >
                     {/* --- FOCUS FRAME CORNERS --- */}
                     {/* Top Left */}
@@ -112,7 +112,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                              <img 
                                src={project.image} 
                                alt={project.title} 
-                               className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${!project.demoUrl ? 'grayscale opacity-50' : ''}`}
+                               className={`w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 ${!project.demoUrl ? 'grayscale opacity-50' : ''}`}
                              />
                         </div>
 

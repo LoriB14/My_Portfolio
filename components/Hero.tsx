@@ -749,7 +749,7 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
       {!isLocked && !gameActive && (
         <div className={`relative z-10 text-center px-6 max-w-6xl mx-auto pointer-events-none transition-all duration-700 animate-in fade-in zoom-in-95`}>
           
-          <h1 className="text-4xl sm:text-5xl md:text-3xl sm:text-5xl md:text-3xl sm:text-4xl md:text-5xl md:text-4xl sm:text-3xl sm:text-4xl md:text-5xl md:text-4xl sm:text-5xl md:text-3xl sm:text-5xl md:text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tighter mb-12 leading-none text-white text-glow-fuchsia">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-black tracking-tighter mb-12 leading-none text-white text-glow-fuchsia">
             LORI <br />
             <span className="text-white">BATTOUK</span>
           </h1>

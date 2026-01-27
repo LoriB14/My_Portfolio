@@ -31,7 +31,7 @@ const Skills: React.FC = () => {
       {/* Header */}
       <div className="flex items-end justify-between mb-16 border-b border-white/10 pb-6">
         <div>
-           <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-black text-white mb-2 tracking-tighter uppercase">Technical Skills</h2>
+           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black text-white mb-2 tracking-tighter uppercase">Technical Skills</h2>
            <p className="text-purple-200 text-xs font-bold tracking-[0.2em] uppercase">Systems · Architecture · Design</p>
         </div>
       </div>

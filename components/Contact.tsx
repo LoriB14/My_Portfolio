@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
   return (
     <div className="relative">
       <div className="flex items-center gap-6 mb-16">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tighter uppercase text-white">Contact Me</h2>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tighter uppercase text-white">Contact Me</h2>
         <div className="flex-grow h-[1px] bg-gradient-to-r from-fuchsia-600/50 to-transparent"></div>
       </div>
 

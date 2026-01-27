@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="flex items-center gap-8 mb-16">
-        <h2 className="text-3xl sm:text-2xl sm:text-3xl md:text-4xl md:text-5xl md:text-7xl font-display font-black tracking-tighter uppercase text-white">About Me</h2>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tighter uppercase text-white">About Me</h2>
         <div className="flex-grow h-[2px] bg-gradient-to-r from-fuchsia-600 to-transparent"></div>
       </div>
 
