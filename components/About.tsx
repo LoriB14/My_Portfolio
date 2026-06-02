@@ -13,13 +13,13 @@ const About: React.FC = () => {
         {/* Text Content */}
         <div className="space-y-4 sm:space-y-6 md:space-y-8 text-base sm:text-lg md:text-2xl text-white leading-relaxed font-medium">
             <p className="border-l-4 border-fuchsia-600 pl-3 sm:pl-4 md:pl-6">
-              I'm a computer science student and emerging developer with a strong interest in building clean, modern, and user-friendly web experiences. I'm still learning, but I'm dedicated, curious, and constantly improving my skills through hands-on projects and real problem-solving.
+              I'm a second-year Computer Science student at York University's Lassonde School of Engineering, building practical experience across full-stack development, quality assurance, and data-driven process improvement. I care about writing software that's clear, functional, and designed with the person using it in mind.
             </p>
             <p>
-              I enjoy exploring front-end development, UI/UX design, and the technologies behind modern web applications. Every project I work on is an opportunity to grow, experiment, and push myself to learn something new.
+              My internship experience spans both technical and analytical work — from QA testing and UX/UI analysis to contributing to process improvement initiatives using an IL6S framework at Mondelēz International. These roles shaped how I approach problems: with structure, an eye for the user, and a focus on outcomes that can actually be measured.
             </p>
             <p>
-              Outside of school, I'm focused on building my portfolio, strengthening my technical foundation, and gaining experience that will help me become a well-rounded developer. My goal is to create meaningful digital experiences while continuously improving my skills.
+              Outside of coursework and internships, I build. Projects like 6IXASSIST — an AI resource finder that won 1st place at ElleHacks — and Pegasus, a production e-commerce platform, reflect the kind of work I find most meaningful: real tools that solve real problems, built with care and shipped properly.
             </p>
         </div>
 

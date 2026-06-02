@@ -1,6 +1,7 @@
 import sixAssistLogo from './Logos/6ixAssist_logo.png';
 import pegasusLogo from './Logos/PegasusCover.png';
 import packPalLogo from './Logos/PackPal.png';
+import wealthQuestLogo from './Logos/Wealth Quest pixel art logo.png';
 
 import { Project, SkillGroup } from './types';
 
@@ -27,10 +28,30 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
+    title: "WEALTH QUEST",
+    category: "GAME DEV / EDUTECH",
+    image: wealthQuestLogo,
+    tags: ["React", "Next.js", "Phaser", "TypeScript"],
+    description: "Wealth Quest is a retro, life-choice game that teaches kids financial literacy through everyday decisions.",
+    detailedDescription: "Feb 2026 — Created during ElleHacks 2026. Players explore a pixel-art city and make choices around spending, saving, and investing, with simple, kid-friendly feedback that explains real money concepts. The game was built using React + Next.js with Phaser for the top-down world, focusing on clarity, accessibility, and playful learning. Inspired by Wealthsimple’s mission to make money education more approachable.",
+    features: [
+      "Pixel-art City Exploration",
+      "Financial Literacy Education",
+      "Interactive Decisions",
+      "Kid-friendly Feedback"
+    ],
+    role: "Full Stack Developer",
+    status: "Hackathon Project",
+    technicalDetails: "Built using React + Next.js for the framework and Phaser for the game engine. Focus on accessibility and educational engagement.",
+    demoUrl: "https://ellehacks2026.vercel.app/",
+    repoUrl: "#"
+  },
+  {
+    id: 3,
     title: "PEGASUS",
     category: "E-COMMERCE",
     image: pegasusLogo,
-    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Stripe", "Supabase", "Vercel"],
     description: "A clean, fast storefront with real‑time cart updates, simple product filters, and a frictionless checkout — designed to feel quick and intuitive on any device.",
     detailedDescription: "Source is private. Built with Next.js and Tailwind CSS, the app uses SSR/ISR for product pages to balance freshness with speed, plus a scoped client‑side cart for snappy interactions. The UI follows accessible patterns and a consistent design system. Deployed on Vercel for global edge caching, low latency, and auto‑scaling. Performance budgets and monitoring keep the experience responsive as the catalog grows.",
     features: [
@@ -46,7 +67,7 @@ export const PROJECTS: Project[] = [
     repoUrl: "" 
   },
   {
-    id: 3,
+    id: 4,
     title: "PACKPAL 🚧",
     category: "AI / TRAVEL (COMING SOON)",
     image: packPalLogo,
@@ -66,7 +87,7 @@ export const PROJECTS: Project[] = [
     repoUrl: ""
   },
   {
-    id: 4,
+    id: 5,
     title: "GO STATION TRACKER",
     category: "DATA VISUALIZATION (COMING SOON)",
     image: "https://placehold.co/800x450/FFFFFF/c026d3/png?text=COMING+SOON&font=montserrat",
@@ -136,6 +157,19 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Google APIs", desc: "Maps, Gemini, Places" },
       { name: "GCP" },
       { name: "Jenkins" }
+    ]
+  },
+  {
+    category: "Data & QA",
+    description: "Analytics, testing, and process improvement",
+    icon: "CHART",
+    items: [
+      { name: "SQL" },
+      { name: "KPI Dashboards" },
+      { name: "Data Visualization" },
+      { name: "Manual Testing" },
+      { name: "UX/UI Analysis" },
+      { name: "IL6S / Lean", desc: "Process improvement" }
     ]
   }
 ];

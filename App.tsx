@@ -3,7 +3,9 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Reflections from './components/Reflections';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import GeminiAssistant from './components/GeminiAssistant';
@@ -25,7 +27,7 @@ const App: React.FC = () => {
 
     const handleScroll = () => {
       // Updated order for scroll tracking
-      const sections = ['home', 'about', 'projects', 'education', 'skills', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'reflections', 'education', 'skills', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -83,10 +85,18 @@ const App: React.FC = () => {
               <About />
             </section>
 
+            <section id="experience" className="py-32 px-6 max-w-7xl mx-auto">
+              <Experience />
+            </section>
+
             <section id="projects" className="py-32 px-6 max-w-7xl mx-auto">
               <Projects onProjectStateChange={setIsProjectOpen} />
             </section>
-            
+
+            <section id="reflections" className="py-32 px-6 max-w-7xl mx-auto">
+              <Reflections />
+            </section>
+
             <section id="education" className="py-32 px-6 max-w-7xl mx-auto">
               <Education />
             </section>

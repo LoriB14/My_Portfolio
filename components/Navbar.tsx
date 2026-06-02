@@ -12,7 +12,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
   const navItems = [
     { id: 'home', label: 'HOME' },
     { id: 'about', label: 'ABOUT' },
+    { id: 'experience', label: 'EXPERIENCE' },
     { id: 'projects', label: 'PROJECTS' },
+    { id: 'reflections', label: 'REFLECTIONS' },
     { id: 'education', label: 'EDUCATION' },
     { id: 'skills', label: 'SKILLS' },
   ];
