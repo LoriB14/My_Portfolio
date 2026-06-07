@@ -10,7 +10,6 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const navItems = [
-    { id: 'home', label: 'HOME' },
     { id: 'about', label: 'ABOUT' },
     { id: 'experience', label: 'EXPERIENCE' },
     { id: 'projects', label: 'PROJECTS' },
@@ -41,50 +40,50 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
 
   return (
     <>
-    <nav className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-3 sm:py-6 flex justify-between items-center bg-slate-950/80 backdrop-blur-2xl border-b border-white/10 transition-transform duration-500 ease-in-out ${isHidden ? '-translate-y-32' : 'translate-y-0'}`}>
-      <div className="flex items-center gap-3 sm:gap-5 group cursor-pointer" onClick={resetToHome}>
-        <div className="relative">
-          <div className="w-10 h-10 sm:w-16 sm:h-16 border-2 border-fuchsia-600 flex items-center justify-center transition-all group-hover:bg-fuchsia-600 group-hover:rotate-45 duration-500 group-hover:shadow-[0_0_15px_#c026d3]">
-            <span className="font-display font-black text-white text-lg sm:text-2xl group-hover:-rotate-45 transition-transform">LB</span>
-          </div>
+    <nav className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-4 bg-slate-950/80 backdrop-blur-2xl border-b border-white/10 transition-transform duration-500 ease-in-out ${isHidden ? '-translate-y-32' : 'translate-y-0'}`}>
+
+      {/* Logo — left, fixed width */}
+      <div className="flex-shrink-0 flex items-center gap-3 group cursor-pointer" onClick={resetToHome}>
+        <div className="w-10 h-10 border-2 border-fuchsia-600 flex items-center justify-center transition-all group-hover:bg-fuchsia-600 group-hover:rotate-45 duration-500 group-hover:shadow-[0_0_15px_#c026d3]">
+          <span className="font-display font-black text-white text-base group-hover:-rotate-45 transition-transform">LB</span>
         </div>
         <div className="hidden sm:block">
-          <h1 className="font-display font-bold tracking-tighter text-xl sm:text-3xl leading-none uppercase text-white">Lori <span className="text-fuchsia-500 text-glow-fuchsia">Battouk</span></h1>
-          <p className="text-[8px] sm:text-[10px] tracking-[0.3em] font-bold text-purple-300 uppercase mt-1">Computer Science @ York</p>
+          <h1 className="font-display font-bold tracking-tighter text-lg leading-none uppercase text-white">Lori <span className="text-fuchsia-500">Battouk</span></h1>
+          <p className="text-[8px] tracking-[0.25em] font-bold text-purple-300 uppercase mt-0.5">CS @ York</p>
         </div>
       </div>
 
-      {/* Centered Nav Items */}
-      <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 gap-10">
+      {/* Nav items — centered, flex-1 */}
+      <div className="hidden xl:flex flex-1 justify-center items-center gap-5">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
-            className={`font-display text-base tracking-[0.2em] font-bold transition-all hover:text-fuchsia-400 relative py-2 hover:shadow-[0_0_10px_rgba(192,38,211,0.2)] ${
-              activeSection === item.id ? 'text-fuchsia-500' : 'text-white'
+            className={`font-display text-[11px] tracking-[0.15em] font-black uppercase transition-all hover:text-fuchsia-400 relative py-2 whitespace-nowrap ${
+              activeSection === item.id ? 'text-fuchsia-500' : 'text-white/80'
             }`}
           >
             {item.label}
             {activeSection === item.id && (
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-fuchsia-600 box-shadow-[0_0_10px_#c026d3]"></span>
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-fuchsia-600"></span>
             )}
           </button>
         ))}
       </div>
 
-      <div className="flex items-center gap-4 sm:gap-8">
-        {/* Purple Contact Button - Desktop Only */}
-        <button 
+      {/* Right side — contact + hamburger */}
+      <div className="flex-shrink-0 flex items-center gap-3 ml-auto">
+        <button
           onClick={() => scrollTo('contact')}
-          className="hidden lg:block bg-purple-600 text-white px-6 py-3 font-display font-black text-sm tracking-[0.2em] uppercase hover:bg-purple-700 transition-all border-2 border-purple-600 shadow-[0_0_20px_rgba(147,51,234,0.5)]"
+          className="hidden xl:block bg-purple-600 text-white px-5 py-2.5 font-display font-black text-[11px] tracking-[0.15em] uppercase hover:bg-purple-700 transition-all border-2 border-purple-600 shadow-[0_0_20px_rgba(147,51,234,0.4)] whitespace-nowrap"
         >
           CONTACT
         </button>
-        
-        {/* Mobile Menu Button */}
-        <button 
+
+        {/* Hamburger — mobile / tablet */}
+        <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-white p-2"
+          className="xl:hidden text-white p-2"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
     
     {/* Mobile Menu Overlay */}
     {mobileMenuOpen && (
-      <div className="lg:hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)}>
+      <div className="xl:hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)}>
         <div className="flex flex-col items-center justify-center h-full gap-6 px-6">
           {mobileNavItems.map((item) => (
             <button

@@ -38,10 +38,10 @@ const Education: React.FC = () => {
                 {/* Academic Summary */}
                 <div className="space-y-4 sm:space-y-6 md:space-y-8">
                     <p className="text-white leading-relaxed text-base sm:text-lg md:text-xl font-medium border-l-4 border-white/30 pl-3 sm:pl-4 md:pl-6">
-                        Second-year Computer Science student building a strong foundation in software development, algorithms, and modern web technologies.
+                        Third-year Computer Science student at Lassonde. I have been building real projects since my first year.
                     </p>
                     <p className="text-white leading-relaxed text-base sm:text-lg md:text-xl font-medium border-l-4 border-white/30 pl-3 sm:pl-4 md:pl-6">
-                        My studies combine theory with hands-on projects across Java, JavaScript/React, low-level systems, and problem-solving focused coursework.
+                        I learn best by doing. My coursework covers algorithms, systems, OOP, and web development. Outside class I apply it all to real projects.
                     </p>
                 </div>
                 
@@ -103,7 +103,7 @@ const Education: React.FC = () => {
                 {/* Description */}
                 <div className="xl:col-span-1">
                      <p className="text-white leading-relaxed text-lg md:text-xl font-medium">
-                        Currently completing the Google Data Analytics Professional Certificate, gaining practical experience in SQL, data cleaning, visualization, and real-world analytical workflows that complement my computer science background.
+                        I am completing the Google Data Analytics Professional Certificate to strengthen my SQL, data cleaning, and visualization skills. It complements the data work I do in my internship at Mondelēz.
                     </p>
                 </div>
                 

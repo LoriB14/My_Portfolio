@@ -15,24 +15,24 @@ const REFLECTIONS: ReflectionEntry[] = [
     id: 1,
     tab: "Hackathon",
     project: "6IXASSIST — ElleHacks 2025",
-    title: "Building Under Pressure: What Winning a Hackathon Actually Taught Me",
+    title: "What Winning a Hackathon Actually Taught Me",
     date: "November 2025",
     sections: [
       {
         heading: "What Happened",
-        text: "In November 2025, my team entered ElleHacks with the goal of building something with real-world value. We landed on 6IXASSIST — an AI-powered tool to help people in Toronto locate food banks, shelters, and community services through natural-language search. I took the lead on development, handling the Gemini API integration for intent classification and the OpenStreetMap/Leaflet layer for geolocation and routing. We had 24 hours. We won 1st place.",
+        text: "My team entered ElleHacks in November 2025. We built 6IXASSIST, a tool that helps people in Toronto find food banks, shelters, and community services using plain language search. I led the development. I handled the Gemini API integration and the map layer using OpenStreetMap and Leaflet. We had 24 hours. We won first place.",
       },
       {
         heading: "What I Struggled With",
-        text: "The hardest part wasn't the code — it was making fast decisions under pressure. When the Gemini API returned structured intent data in a format I hadn't anticipated, I had to redesign the data pipeline mid-build without losing time or breaking the map rendering. I also underestimated how long the accessibility layer would take. I had to make cuts and prioritize ruthlessly, which felt uncomfortable but ultimately made the product stronger.",
+        text: "The hardest part was not the code. It was making decisions fast when things broke. The Gemini API returned data in a format I did not expect and I had to rework the pipeline mid-build without losing time. I also underestimated the accessibility layer. I had to cut some things and focus on what mattered most. That was uncomfortable but it made the product better.",
       },
       {
         heading: "What I Learned",
-        text: "Real engineering under constraints forces you to define what actually matters. You can't perfect everything — you have to ship something functional, clear, and useful. I learned to read API documentation quickly and adapt to unexpected response structures without panicking. Leading the development also taught me how to communicate blockers to teammates in real time so we could solve problems together instead of working in silos.",
+        text: "You cannot perfect everything in 24 hours. You have to ship something that works and is useful. I got faster at reading documentation and adapting when things do not go as planned. Leading the build also taught me to communicate clearly with my teammates when I was stuck so we could fix things together instead of going quiet.",
       },
       {
         heading: "What It Means Going Forward",
-        text: "This experience changed how I approach projects. I now scope more tightly upfront, build a working skeleton before layering on features, and treat edge cases as part of the plan — not an afterthought. Winning reinforced that technical rigor and thoughtful design together matter more than just building fast. I want to bring that balance to every engineering role I take on.",
+        text: "I now start every project by building a working skeleton before adding anything extra. I treat edge cases as part of the plan from the beginning. Winning showed me that working fast and building with care are not opposites. I want to bring both to every role I take on.",
       },
     ],
   },
@@ -40,34 +40,34 @@ const REFLECTIONS: ReflectionEntry[] = [
     id: 2,
     tab: "Internship",
     project: "IL6S Internship — Mondelēz International, 2025",
-    title: "Learning to Speak in Data: My IL6S Internship at Mondelēz",
+    title: "What My Internship at Mondelez Taught Me About Building for Real People",
     date: "2025",
     sections: [
       {
         heading: "What Happened",
-        text: "During my internship at Mondelēz International, I worked within an IL6S (Integrated Lean 6 Sigma) framework focused on process improvement and operational efficiency. My main contributions were building KPI dashboards to surface production metrics and helping transition manual reporting workflows to structured digital tools. I also participated in improvement sessions where teams mapped waste and proposed solutions.",
+        text: "At Mondelēz I worked on the IL6S team focused on process improvement in a manufacturing environment. I built KPI dashboards to track production data and helped move manual reporting into digital tools. I also joined sessions where teams mapped out waste and came up with solutions together.",
       },
       {
         heading: "What I Struggled With",
-        text: "I arrived with a technical background but little exposure to operational environments. Understanding which metrics mattered — and which ones didn't — took time. Early on, I built dashboards that tracked the wrong things because I hadn't understood the team's actual decision-making process. I had to go back, ask more questions, and rebuild with the user's workflow in mind. That pivot was uncomfortable but necessary.",
+        text: "I came in with a technical background but not much exposure to operations. It took me a while to understand which metrics actually mattered to the team. I built dashboards early on that tracked the wrong things because I had not asked enough questions first. I had to go back, talk to the team more, and rebuild. It was frustrating but it was the right call.",
       },
       {
         heading: "What I Learned",
-        text: "The most important skill I developed wasn't technical — it was learning to ask better questions before writing a single line. Data is only useful when it's tied to a decision someone actually has to make. I also gained experience translating complex operational data into visuals that non-technical stakeholders could act on, which pushed me to think about communication and design with the same seriousness as technical accuracy.",
+        text: "The most useful thing I learned was to ask better questions before writing any code. Data only helps if it connects to a real decision someone has to make. I also got better at turning complex data into visuals that people without a technical background could actually use. That pushed me to take communication as seriously as the technical work.",
       },
       {
         heading: "What It Means Going Forward",
-        text: "This internship reshaped how I think about building software professionally. I want to be the kind of engineer who understands the business problem before reaching for a technical solution. Whether I'm on a product team or a data project, I'll bring that discipline: define the question first, then build the answer. It also confirmed my interest in roles that sit at the intersection of engineering and product thinking.",
+        text: "This internship changed how I think about building software. I want to understand the problem properly before I start building the solution. I will bring that habit to every team I work on. It also made me more interested in roles where engineering and product thinking are connected.",
       },
     ],
   },
 ];
 
 const CAREER_GOALS = [
-  "Full-stack engineer at a product company, owning features end-to-end",
-  "Building data-informed systems that make products smarter over time",
-  "UX-driven development — engineering with the user always in view",
-  "Contributions to the open-source and technical community",
+  "Full-stack engineer on a product team, owning features from start to finish",
+  "Building systems that use data to make products smarter",
+  "Working where engineering and product decisions are connected",
+  "Growing into roles with more scope and responsibility over time",
 ];
 
 const Reflections: React.FC = () => {
@@ -147,16 +147,16 @@ const Reflections: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <div className="space-y-6">
             <p className="text-white text-lg md:text-xl leading-relaxed font-medium border-l-4 border-purple-500 pl-6">
-              In two to three years, I want to be working as a full-stack software engineer on a product team — owning features end-to-end, from database design through to the interface. I'm drawn to environments where engineering and product thinking are closely connected and where my decisions directly shape user experience.
+              In the next two to three years I want to be a full-stack engineer on a product team. I want to own features from the database to the interface and work somewhere my decisions have a real impact.
             </p>
             <p className="text-slate-300 text-base md:text-lg leading-relaxed font-medium">
-              Longer term, I'm interested in the intersection of software and data — building systems that don't just collect information, but use it to make the product smarter. Whether that takes me toward product engineering, data engineering, or something between the two, I want the work to be meaningful and technically rigorous.
+              Longer term I am interested in roles that sit at the intersection of software and data. I want to build systems that do not just store information but actually use it to make things better.
             </p>
           </div>
 
           <div className="space-y-6">
             <p className="text-slate-300 text-base md:text-lg leading-relaxed font-medium">
-              My internship at Mondelēz taught me that technical skill alone isn't enough — the most impactful engineering comes from deeply understanding the problem first. My hackathon work showed me I can build fast, adapt under pressure, and create something that matters to real people. I want to keep doing both, with increasing scope and responsibility.
+              Mondelēz taught me to understand the problem before building the solution. ElleHacks showed me I can build fast and ship something real under pressure. I want to keep doing both with more scope each time.
             </p>
             <ul className="space-y-4 pt-2">
               {CAREER_GOALS.map((goal, i) => (

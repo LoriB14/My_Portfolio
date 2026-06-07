@@ -13,13 +13,13 @@ const About: React.FC = () => {
         {/* Text Content */}
         <div className="space-y-4 sm:space-y-6 md:space-y-8 text-base sm:text-lg md:text-2xl text-white leading-relaxed font-medium">
             <p className="border-l-4 border-fuchsia-600 pl-3 sm:pl-4 md:pl-6">
-              I'm a second-year Computer Science student at York University's Lassonde School of Engineering, building practical experience across full-stack development, quality assurance, and data-driven process improvement. I care about writing software that's clear, functional, and designed with the person using it in mind.
+              I'm a third-year Computer Science student at York University. I work hard and I stay busy. Right now I'm juggling two internships, a freelance project, and school at the same time.
             </p>
             <p>
-              My internship experience spans both technical and analytical work — from QA testing and UX/UI analysis to contributing to process improvement initiatives using an IL6S framework at Mondelēz International. These roles shaped how I approach problems: with structure, an eye for the user, and a focus on outcomes that can actually be measured.
+              I like building things that actually get used. I led the full development of Pegasus, a live e-commerce platform, completely on my own. I also built 6IXASSIST at ElleHacks and we won first place.
             </p>
             <p>
-              Outside of coursework and internships, I build. Projects like 6IXASSIST — an AI resource finder that won 1st place at ElleHacks — and Pegasus, a production e-commerce platform, reflect the kind of work I find most meaningful: real tools that solve real problems, built with care and shipped properly.
+              At Mondelēz I work on KPI dashboards and process improvement. At Yadag I do QA testing and UX analysis. I learn fast and I don't wait to be told what to do.
             </p>
         </div>
 
@@ -36,7 +36,7 @@ const About: React.FC = () => {
                     <div>
                         <div className="flex justify-between text-base font-bold text-white uppercase tracking-widest mb-3">
                             <span>Education Level</span>
-                            <span className="text-fuchsia-500">Year 2</span>
+                            <span className="text-fuchsia-500">Year 3</span>
                         </div>
                         <div className="h-3 bg-slate-800 rounded-full overflow-hidden border border-white/5">
                             <div className="h-full bg-gradient-to-r from-purple-800 to-fuchsia-500 w-[40%] shadow-[0_0_10px_rgba(192,38,211,0.5)]"></div>

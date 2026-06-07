@@ -770,29 +770,41 @@ const Hero: React.FC<HeroProps> = ({ isLocked = false, onUnlock, onGameStatusCha
 
       {/* STANDARD HERO CONTENT (Visible only when UNLOCKED and Game NOT Active) */}
       {!isLocked && !gameActive && (
-        <div className={`relative z-10 text-center px-6 max-w-6xl mx-auto pointer-events-none transition-all duration-700 animate-in fade-in zoom-in-95`}>
-          
-          <h1 className="font-display font-black tracking-tighter mb-12 leading-none text-white text-glow-fuchsia">
-            <span className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl block">LORI</span>
-            <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl block text-white">BATTOUK</span>
-          </h1>
-          
-          <p className="max-w-4xl mx-auto text-purple-100 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light mb-12 sm:mb-16 md:mb-24 leading-relaxed tracking-wider">
-            Building software that's intentional, thoughtful, and made to have real impact.
+        <div className="relative z-10 text-center px-6 max-w-6xl mx-auto pointer-events-none transition-all duration-700 animate-in fade-in zoom-in-95">
+
+          {/* Eyebrow */}
+          <p className="text-[11px] font-black text-purple-400 uppercase tracking-[0.4em] mb-6">
+            Software Engineer · York University
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-8 md:gap-16 mb-20 pointer-events-auto">
-            <button 
+          {/* Name — both words same size, same line weight */}
+          <h1 className="font-display font-black tracking-tighter leading-none mb-6">
+            <span className="block text-[clamp(3.5rem,12vw,9rem)] text-white">LORI</span>
+            <span className="block text-[clamp(3.5rem,12vw,9rem)] text-white">BATTOUK</span>
+          </h1>
+
+          {/* Thin accent line */}
+          <div className="w-16 h-[3px] bg-fuchsia-600 mx-auto mb-8"></div>
+
+          {/* Tagline */}
+          <p className="max-w-lg mx-auto text-white/60 text-base sm:text-lg font-light mb-12 leading-relaxed">
+            I build things, ship them, and keep going.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-row items-center justify-center gap-4 sm:gap-6 mb-20 pointer-events-auto">
+            <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative px-8 py-4 sm:px-12 sm:py-6 md:px-16 md:py-8 bg-fuchsia-600 text-white font-display font-black text-sm sm:text-lg md:text-xl tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em] uppercase transition-all hover:bg-white hover:text-fuchsia-600 border-2 sm:border-3 md:border-4 border-fuchsia-600"
+              className="px-8 py-4 sm:px-12 sm:py-5 bg-fuchsia-600 text-white font-display font-black text-sm tracking-[0.35em] uppercase transition-all hover:bg-white hover:text-fuchsia-600 border-2 border-fuchsia-600 shadow-[0_0_25px_rgba(192,38,211,0.3)] hover:shadow-[0_0_40px_rgba(192,38,211,0.55)] hover:-translate-y-0.5 duration-200"
             >
               PROJECTS
             </button>
-            
-            <button 
+
+            <button
               onClick={startGame}
-              className="hidden md:block px-16 py-8 border-4 border-white/20 text-white font-display font-black text-xl tracking-[0.5em] uppercase transition-all hover:border-fuchsia-600 hover:text-fuchsia-600"
+              className="hidden md:flex items-center gap-2 px-6 py-3 border border-white/20 text-white/40 font-display font-black text-[10px] tracking-[0.25em] uppercase transition-all hover:border-white/40 hover:text-white/70 duration-200"
             >
+              <svg className="w-2.5 h-2.5 fill-fuchsia-500" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
               PLAY ASTRO BIT
             </button>
           </div>

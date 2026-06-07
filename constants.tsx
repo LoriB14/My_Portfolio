@@ -12,8 +12,8 @@ export const PROJECTS: Project[] = [
     category: "AI / GEOLOCATION",
     image: sixAssistLogo,
     tags: ["Gemini API", "OpenStreetMap", "React", "Tailwind CSS", "TypeScript"],
-    description: "An AI‑powered resource finder that helps people in Toronto locate nearby food banks, shelters, and community services by typing natural‑language requests.",
-    detailedDescription: "Nov 2025 — Won 1st Place at ElleHacks for concept + implementation. The app converts free‑form questions (e.g., ‘I need food near Yonge & Bloor’) into structured intents using the Gemini API, then geocodes and ranks resources with OpenStreetMap/Leaflet before rendering routes and options on an accessible map UI. Built with React + Tailwind for a responsive experience and engineered with an offline‑aware cache so critical data remains available on spotty networks. Planned enhancements include real‑time update feeds and multi‑language support for broader accessibility.",
+    description: "An AI tool that helps people in Toronto find food banks, shelters, and community services. You type what you need in plain English and it finds what is nearby.",
+    detailedDescription: "Won 1st place at ElleHacks in November 2025. I led the development. The app takes plain language input, uses the Gemini API to understand what the person needs, and then finds and maps nearby resources using OpenStreetMap and Leaflet. Built with React and Tailwind. It has an offline cache so it still works on bad connections.",
     features: [
       "Natural Language Search",
       "Real-time Geolocation Routing",
@@ -52,8 +52,8 @@ export const PROJECTS: Project[] = [
     category: "E-COMMERCE",
     image: pegasusLogo,
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Stripe", "Supabase", "Vercel"],
-    description: "A clean, fast storefront with real‑time cart updates, simple product filters, and a frictionless checkout — designed to feel quick and intuitive on any device.",
-    detailedDescription: "Source is private. Built with Next.js and Tailwind CSS, the app uses SSR/ISR for product pages to balance freshness with speed, plus a scoped client‑side cart for snappy interactions. The UI follows accessible patterns and a consistent design system. Deployed on Vercel for global edge caching, low latency, and auto‑scaling. Performance budgets and monitoring keep the experience responsive as the catalog grows.",
+    description: "A full e-commerce platform I built completely on my own. Real-time cart, product filters, and Stripe checkout. Live and in production.",
+    detailedDescription: "I was the sole developer on this. I designed the database schema, built the auth system, integrated Stripe for payments, and deployed the whole thing on Vercel. Built with Next.js, Supabase, and TypeScript.",
     features: [
       "Modern Responsive UI",
       "Real-time Cart Management",
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     category: "AI / TRAVEL (COMING SOON)",
     image: packPalLogo,
     tags: ["Next.js", "Gemini 2.5", "NextAuth", "TypeScript", "Drizzle ORM", "PostgreSQL", "Tailwind CSS", "Vercel"],
-    description: "An AI‑powered packing assistant that builds smart checklists from your trip details, weather, and planned activities — so you pack exactly what you need.",
+    description: "An AI packing assistant that builds a smart checklist based on your trip, the weather, and what you are planning to do.",
     detailedDescription: "Oct 2025 — Developed a Next.js + TypeScript app that uses Gemini 2.5 to generate personalized packing lists based on destination, dates, forecast, and itinerary. Implemented secure authentication with NextAuth and modeled data using Drizzle ORM on PostgreSQL. Added collaborative planning and real‑time checklist sync via Next.js Server Actions. Deployed on Vercel with a custom GoDaddy domain for demos (NewHacks 2025).",
     features: [
       "Smart Packing Lists (Gemini 2.5)",
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     category: "DATA VISUALIZATION (COMING SOON)",
     image: "https://placehold.co/800x450/FFFFFF/c026d3/png?text=COMING+SOON&font=montserrat",
     tags: ["Python", "Flask", "SQLite", "Chart.js", "JavaScript", "HTML/CSS"],
-    description: "A simple, clear dashboard that shows parking availability at GO stations using the lot numbers posted on site — helping commuters find open spots faster.",
+    description: "A dashboard that shows parking availability at GO stations in real time. Built to help commuters know if there is a spot before they leave.",
     detailedDescription: "Sept 2025 — Created a parking lot tracker that pulls real‑time data from existing public sources and maps it to the lot IDs commuters already recognize. The Flask backend schedules ingestion and normalizes data into SQLite, exposing a small REST API. The frontend presents open vs. occupied lots and historical capacity trends with Chart.js. Designed for clarity and quick decision‑making on the way to the station.",
     features: [
       "Real-time Data Polling",

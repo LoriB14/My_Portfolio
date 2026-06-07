@@ -8,7 +8,6 @@ import Projects from './components/Projects';
 import Reflections from './components/Reflections';
 import Skills from './components/Skills';
 import Education from './components/Education';
-import GeminiAssistant from './components/GeminiAssistant';
 import Contact from './components/Contact';
 import Intro from './components/Intro';
 import Resume from './components/Resume';
@@ -135,7 +134,6 @@ const App: React.FC = () => {
               </div>
             </div>
           </footer>
-          <GeminiAssistant />
         </>
       )}
     </div>

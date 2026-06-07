@@ -128,11 +128,6 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                                     🏆 Winner of ElleHacks
                                 </div>
                             )}
-                            {project.id === 4 && (
-                                <div className="text-[10px] font-bold text-purple-400 uppercase tracking-wider mb-3 px-2 py-1 bg-purple-600/10 border border-purple-600/30 rounded">
-                                    Vibe The Code for Hack The 6ix
-                                </div>
-                            )}
                             
                             <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2 font-medium">
                                 {project.description}
