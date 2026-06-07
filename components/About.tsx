@@ -13,13 +13,13 @@ const About: React.FC = () => {
         {/* Text Content */}
         <div className="space-y-4 sm:space-y-6 md:space-y-8 text-base sm:text-lg md:text-2xl text-white leading-relaxed font-medium">
             <p className="border-l-4 border-fuchsia-600 pl-3 sm:pl-4 md:pl-6">
-              I'm a third-year Computer Science student at York University. I work hard and I stay busy. Right now I'm juggling two internships, a freelance project, and school at the same time.
+              I'm a third-year Computer Science student at York University's Lassonde School of Engineering, currently completing my co-op at Mondelēz International as an IL6S Process Improvement Intern.
             </p>
             <p>
-              I like building things that actually get used. I led the full development of Pegasus, a live e-commerce platform, completely on my own. I also built 6IXASSIST at ElleHacks and we won first place.
+              Alongside my co-op, I balance a part-time QA and UX role, freelance web development, and a full course load.
             </p>
             <p>
-              At Mondelēz I work on KPI dashboards and process improvement. At Yadag I do QA testing and UX analysis. I learn fast and I don't wait to be told what to do.
+              Outside of work, I build. I was the sole developer on Pegasus, a live e-commerce platform. My team won first place at ElleHacks with 6IXASSIST, an AI tool that connects people in Toronto to community resources.
             </p>
         </div>
 
