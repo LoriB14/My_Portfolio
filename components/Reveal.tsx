@@ -41,7 +41,7 @@ export const Reveal: React.FC<RevealProps> = ({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount }}
+      viewport={{ once: false, amount }}
       variants={variants}
       transition={{
         duration: shouldReduceMotion ? 0.35 : duration ?? 0.75,

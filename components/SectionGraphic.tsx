@@ -58,7 +58,7 @@ const SectionGraphic: React.FC<SectionGraphicProps> = ({ variant = 0, className 
           strokeWidth={0.4}
           initial={{ pathLength: 0, opacity: 0 }}
           whileInView={{ pathLength: 1, opacity: 0.35 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: shouldReduceMotion ? 0.3 : 1.1, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
         />
       ))}
@@ -71,7 +71,7 @@ const SectionGraphic: React.FC<SectionGraphicProps> = ({ variant = 0, className 
           fill={i % 2 === 0 ? '#e879f9' : '#c084fc'}
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 0.6, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
         />
       ))}

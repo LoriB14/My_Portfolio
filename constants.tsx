@@ -135,33 +135,40 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     category: "Backend",
-    description: "APIs, databases, and services",
+    description: "Servers and APIs",
     icon: "SERVER",
     items: [
       { name: "Node.js", icon: "nodedotjs" },
       { name: "Flask", icon: "flask" },
+      { name: "REST APIs" },
+      { name: "Google APIs", desc: "Maps, Gemini, Places", icon: "google" }
+    ]
+  },
+  {
+    category: "Databases",
+    description: "Storage and persistence",
+    icon: "CHART",
+    items: [
       { name: "PostgreSQL", icon: "postgresql" },
       { name: "SQLite", icon: "sqlite" },
-      { name: "Supabase", desc: "Auth, DB, Storage", icon: "supabase" },
-      { name: "REST APIs" }
+      { name: "Supabase", desc: "Auth, DB, Storage", icon: "supabase" }
     ]
   },
   {
     category: "Tools & Infra",
-    description: "Deployment, tooling, and infrastructure",
+    description: "Deployment and tooling",
     icon: "TERMINAL",
     items: [
       { name: "Linux", icon: "linux" },
       { name: "Git", icon: "git" },
       { name: "Docker", icon: "docker" },
-      { name: "Google APIs", desc: "Maps, Gemini, Places", icon: "google" },
       { name: "GCP", icon: "googlecloud" },
       { name: "Jenkins", icon: "jenkins" }
     ]
   },
   {
     category: "Data & QA",
-    description: "Analytics, testing, and process improvement",
+    description: "Analytics and process",
     icon: "CHART",
     items: [
       { name: "SQL", icon: "mysql" },

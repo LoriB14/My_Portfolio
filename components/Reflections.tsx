@@ -103,31 +103,33 @@ const Reflections: React.FC = () => {
         ))}
       </Reveal>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active.id}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.4, ease }}
-        >
-          <div className="mb-10">
-            <p className="text-xs text-white/35 mb-3">{active.project} · {active.date}</p>
-            <h3 className="text-xl md:text-2xl font-display font-medium text-white tracking-tight leading-snug max-w-2xl">
-              {active.title}
-            </h3>
-          </div>
+      <motion.div layout="position" transition={{ duration: 0.35, ease }}>
+        <AnimatePresence mode="popLayout" initial={false}>
+          <motion.div
+            key={active.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease }}
+          >
+            <div className="mb-10">
+              <p className="text-xs text-white/35 mb-3">{active.project} · {active.date}</p>
+              <h3 className="text-xl md:text-2xl font-display font-medium text-white tracking-tight leading-snug max-w-2xl">
+                {active.title}
+              </h3>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-            {active.sections.map((section, i) => (
-              <div key={i}>
-                <h4 className="text-xs font-medium text-fuchsia-300/50 mb-2">{section.heading}</h4>
-                <p className="text-white/60 text-sm md:text-base leading-relaxed">{section.text}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </AnimatePresence>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+              {active.sections.map((section, i) => (
+                <div key={i}>
+                  <h4 className="text-xs font-medium text-fuchsia-300/50 mb-2">{section.heading}</h4>
+                  <p className="text-white/60 text-sm md:text-base leading-relaxed">{section.text}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
 
       <Reveal direction="up" delay={0.1} className="mt-16 pt-12 border-t border-white/10">
         <h3 className="text-lg font-display font-medium text-white mb-6">Where this is going</h3>

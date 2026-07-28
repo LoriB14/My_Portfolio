@@ -15,7 +15,6 @@ import CursorSpotlight from './components/CursorSpotlight';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [isProjectOpen, setIsProjectOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
@@ -39,12 +38,8 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (isResumeOpen || isProjectOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-  }, [isResumeOpen, isProjectOpen]);
+    document.body.style.overflow = isResumeOpen ? 'hidden' : '';
+  }, [isResumeOpen]);
 
   const openResume = () => setIsResumeOpen(true);
 
@@ -63,7 +58,7 @@ const App: React.FC = () => {
 
       <Resume isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
 
-      <Navbar activeSection={activeSection} isHidden={isProjectOpen || isResumeOpen} onOpenResume={openResume} />
+      <Navbar activeSection={activeSection} isHidden={isResumeOpen} onOpenResume={openResume} />
 
       <main className="relative z-10">
         <section id="home">
@@ -79,7 +74,7 @@ const App: React.FC = () => {
         </section>
 
         <section id="projects" className="py-28 sm:py-36 px-6 max-w-6xl mx-auto">
-          <Projects onProjectStateChange={setIsProjectOpen} />
+          <Projects />
         </section>
 
         <section id="reflections" className="py-28 sm:py-36 px-6 max-w-6xl mx-auto">
