@@ -1,27 +1,29 @@
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface NavbarProps {
   activeSection: string;
   isHidden?: boolean;
+  onOpenResume?: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
+const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false, onOpenResume }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const navItems = [
-    { id: 'about', label: 'ABOUT' },
-    { id: 'experience', label: 'EXPERIENCE' },
-    { id: 'projects', label: 'PROJECTS' },
-    { id: 'reflections', label: 'REFLECTIONS' },
-    { id: 'education', label: 'EDUCATION' },
-    { id: 'skills', label: 'SKILLS' },
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'reflections', label: 'Reflections' },
+    { id: 'education', label: 'Education' },
+    { id: 'skills', label: 'Skills' },
   ];
-  
+
   // Mobile menu includes contact
   const mobileNavItems = [
     ...navItems,
-    { id: 'contact', label: 'CONTACT' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   const scrollTo = (id: string) => {
@@ -40,44 +42,57 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
 
   return (
     <>
-    <nav className={`fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-4 bg-slate-950/80 backdrop-blur-2xl border-b border-white/10 transition-transform duration-500 ease-in-out ${isHidden ? '-translate-y-32' : 'translate-y-0'}`}>
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: isHidden ? -128 : 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4 flex items-center gap-4 bg-slate-950/80 backdrop-blur-xl border-b border-white/10"
+    >
 
       {/* Logo — left, fixed width */}
-      <div className="flex-shrink-0 flex items-center gap-3 group cursor-pointer" onClick={resetToHome}>
-        <div className="w-10 h-10 border-2 border-fuchsia-600 flex items-center justify-center transition-all group-hover:bg-fuchsia-600 group-hover:rotate-45 duration-500 group-hover:shadow-[0_0_15px_#c026d3]">
-          <span className="font-display font-black text-white text-base group-hover:-rotate-45 transition-transform">LB</span>
-        </div>
-        <div className="hidden sm:block">
-          <h1 className="font-display font-bold tracking-tighter text-lg leading-none uppercase text-white">Lori <span className="text-fuchsia-500">Battouk</span></h1>
-          <p className="text-[8px] tracking-[0.25em] font-bold text-purple-300 uppercase mt-0.5">CS @ York</p>
-        </div>
+      <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer group" onClick={resetToHome}>
+        <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-fuchsia-400 to-purple-400" />
+        <h1 className="font-mono text-[13px] tracking-wide text-white/70 group-hover:text-white transition-colors leading-none">
+          CS @ YorkU
+        </h1>
       </div>
 
       {/* Nav items — centered, flex-1 */}
-      <div className="hidden xl:flex flex-1 justify-center items-center gap-5">
+      <div className="hidden xl:flex flex-1 justify-center items-center gap-10">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => scrollTo(item.id)}
-            className={`font-display text-[11px] tracking-[0.15em] font-black uppercase transition-all hover:text-fuchsia-400 relative py-2 whitespace-nowrap ${
-              activeSection === item.id ? 'text-fuchsia-500' : 'text-white/80'
+            className={`font-display text-[13px] font-medium transition-colors relative py-2 whitespace-nowrap ${
+              activeSection === item.id ? 'text-white' : 'text-white/50 hover:text-white/80'
             }`}
           >
             {item.label}
             {activeSection === item.id && (
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-fuchsia-600"></span>
+              <motion.span
+                layoutId="nav-underline"
+                className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-fuchsia-400 to-purple-400"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
             )}
           </button>
         ))}
       </div>
 
-      {/* Right side — contact + hamburger */}
+      {/* Right side — resume + contact + hamburger */}
       <div className="flex-shrink-0 flex items-center gap-3 ml-auto">
         <button
-          onClick={() => scrollTo('contact')}
-          className="hidden xl:block bg-purple-600 text-white px-5 py-2.5 font-display font-black text-[11px] tracking-[0.15em] uppercase hover:bg-purple-700 transition-all border-2 border-purple-600 shadow-[0_0_20px_rgba(147,51,234,0.4)] whitespace-nowrap"
+          onClick={onOpenResume}
+          className="hidden xl:block text-white/60 hover:text-white px-3 py-2 font-display font-medium text-[13px] transition-colors whitespace-nowrap"
         >
-          CONTACT
+          Resume
+        </button>
+
+        <button
+          onClick={() => scrollTo('contact')}
+          className="hidden xl:block bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white px-5 py-2 rounded-full font-display font-medium text-[13px] transition-shadow hover:shadow-[0_0_18px_rgba(217,70,239,0.25)] whitespace-nowrap"
+        >
+          Contact
         </button>
 
         {/* Hamburger — mobile / tablet */}
@@ -95,8 +110,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
           </svg>
         </button>
       </div>
-    </nav>
-    
+    </motion.nav>
+
     {/* Mobile Menu Overlay */}
     {mobileMenuOpen && (
       <div className="xl:hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)}>
@@ -105,13 +120,22 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false }) => {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className={`font-display text-xl tracking-[0.3em] font-black transition-all hover:text-fuchsia-400 ${
-                activeSection === item.id ? 'text-fuchsia-500' : 'text-white'
+              className={`font-display text-xl font-medium transition-colors ${
+                activeSection === item.id ? 'text-white' : 'text-white/50'
               }`}
             >
               {item.label}
             </button>
           ))}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenResume?.();
+            }}
+            className="font-display text-xl font-medium text-white/50"
+          >
+            Resume
+          </button>
         </div>
       </div>
     )}

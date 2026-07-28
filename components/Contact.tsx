@@ -1,5 +1,20 @@
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import Reveal from './Reveal';
+import SectionHeading from './SectionHeading';
+
+const MailIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>
+);
 
 const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -7,19 +22,15 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
-    
     const form = e.currentTarget;
     const formData = new FormData(form);
-    
+
     try {
       const response = await fetch('https://formsubmit.co/lbattouk@gmail.com', {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { Accept: 'application/json' },
       });
-      
       if (response.ok) {
         setStatus('sent');
         form.reset();
@@ -35,79 +46,84 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="relative px-2 sm:px-6">
-      <div className="flex items-center gap-4 sm:gap-6 mb-8 sm:mb-16">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tighter uppercase text-white">Contact Me</h2>
-        <div className="flex-grow h-[1px] bg-gradient-to-r from-fuchsia-600/50 to-transparent"></div>
-      </div>
+    <div className="w-full">
+      <SectionHeading index="07" title="Contact" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-20 items-start">
-        <div className="space-y-6 sm:space-y-8 md:space-y-12">
-          <div>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white mb-3 sm:mb-4 md:mb-6 uppercase tracking-tight">Get In Touch</h3>
-            <p className="text-purple-100 leading-relaxed max-w-lg text-base sm:text-lg">
-              Have a question, an opportunity, or just want to say hello? My inbox is always open. Feel free to reach out anytime.
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            <a href="mailto:lbattouk@gmail.com" className="group flex items-center gap-6 cursor-pointer p-4 hover:bg-white/5 transition-colors border border-white/10">
-              <div className="w-14 h-14 bg-slate-900 flex items-center justify-center group-hover:border-fuchsia-600 transition-all border border-white/20 text-2xl text-white">✉️</div>
-              <div>
-                <p className="text-[9px] font-bold text-white/60 uppercase tracking-[0.3em] mb-1">Direct Email</p>
-                <p className="font-display font-bold text-white group-hover:text-fuchsia-500 transition-colors">lbattouk@gmail.com</p>
-              </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <Reveal direction="left" className="space-y-8">
+          <p className="text-white/55 leading-relaxed max-w-md text-sm sm:text-base">
+            Have a question, an opportunity, or just want to say hello? My inbox is always open.
+          </p>
+
+          <div className="space-y-1">
+            <a href="mailto:lbattouk@gmail.com" className="group flex items-center gap-3 py-3 border-b border-white/10 hover:border-fuchsia-400/30 transition-colors">
+              <span className="text-fuchsia-300/50 group-hover:text-fuchsia-300 transition-colors"><MailIcon /></span>
+              <span className="text-white/70 group-hover:text-white transition-colors text-sm">lbattouk@gmail.com</span>
             </a>
-            <a href="https://www.linkedin.com/in/loribattouk/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-6 cursor-pointer p-4 hover:bg-white/5 transition-colors border border-white/10">
-              <div className="w-14 h-14 bg-slate-900 flex items-center justify-center group-hover:border-purple-500 transition-all border border-white/20 text-2xl text-white">🔗</div>
-              <div>
-                <p className="text-[9px] font-bold text-white/60 uppercase tracking-[0.3em] mb-1">LinkedIn</p>
-                <p className="font-display font-bold text-white group-hover:text-purple-400 transition-colors">linkedin.com/in/loribattouk</p>
-              </div>
+            <a href="https://www.linkedin.com/in/loribattouk/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 py-3 border-b border-white/10 hover:border-purple-400/30 transition-colors">
+              <span className="text-purple-300/50 group-hover:text-purple-300 transition-colors"><LinkedInIcon /></span>
+              <span className="text-white/70 group-hover:text-white transition-colors text-sm">linkedin.com/in/loribattouk</span>
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="bg-slate-900/50 p-6 sm:p-10 border border-white/10 relative backdrop-blur-sm">
-          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-fuchsia-600"></div>
-          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-purple-400"></div>
-          
+        <Reveal direction="right" delay={0.1}>
           {status === 'sent' ? (
-            <div className="py-24 text-center">
-              <h4 className="text-2xl font-display font-black text-white mb-12 uppercase">Message Received</h4>
-              <button 
+            <div className="py-16 text-center border-b border-white/10">
+              <h4 className="text-lg font-display font-medium text-white mb-4">Message received</h4>
+              <button
                 onClick={() => setStatus('idle')}
-                className="mt-12 text-[10px] font-black text-fuchsia-500 hover:text-white tracking-[0.4em] uppercase underline underline-offset-8 transition-all"
+                className="text-sm text-white/50 hover:text-white underline underline-offset-4 transition-colors"
               >
-                Send Another Message
+                Send another
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {/* Hidden fields for FormSubmit configuration */}
+            <form onSubmit={handleSubmit} className="space-y-6">
               <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
-              
-              <div className="space-y-2">
-                <label className="text-[9px] font-bold text-white/60 uppercase tracking-[0.4em]">Full Name</label>
-                <input required type="text" name="name" placeholder="NAME" className="w-full bg-slate-950 border border-white/10 focus:border-fuchsia-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all placeholder-white/30" />
+
+              <div>
+                <input
+                  required
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="w-full bg-transparent border-b border-white/15 focus:border-fuchsia-400/50 outline-none py-3 text-sm text-white transition-colors placeholder-white/25"
+                />
               </div>
-              <div className="space-y-2">
-                <label className="text-[9px] font-bold text-white/60 uppercase tracking-[0.4em]">Email</label>
-                <input required type="email" name="email" placeholder="EMAIL" className="w-full bg-slate-950 border border-white/10 focus:border-purple-500 outline-none p-4 font-display text-xs tracking-widest text-white transition-all placeholder-white/30" />
+              <div>
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="w-full bg-transparent border-b border-white/15 focus:border-fuchsia-400/50 outline-none py-3 text-sm text-white transition-colors placeholder-white/25"
+                />
               </div>
-              <div className="space-y-2">
-                <label className="text-[9px] font-bold text-white/60 uppercase tracking-[0.4em]">Message</label>
-                <textarea required rows={4} name="message" placeholder="MESSAGE..." className="w-full bg-slate-950 border border-white/10 focus:border-fuchsia-600 outline-none p-4 font-display text-xs tracking-widest text-white transition-all resize-none placeholder-white/30"></textarea>
+              <div>
+                <textarea
+                  required
+                  rows={3}
+                  name="message"
+                  placeholder="Message"
+                  className="w-full bg-transparent border-b border-white/15 focus:border-fuchsia-400/50 outline-none py-3 text-sm text-white transition-colors resize-none placeholder-white/25"
+                />
               </div>
-              
-              <button type="submit" disabled={status === 'sending'} className="w-full bg-white text-slate-950 font-display font-black py-3 sm:py-5 uppercase tracking-[0.4em] hover:bg-fuchsia-600 hover:text-white transition-all text-sm">
-                {status === 'sending' ? 'MESSAGE SENT' : 'SEND MESSAGE'}
-              </button>
+
+              <motion.button
+                whileHover={{ x: 4 }}
+                type="submit"
+                disabled={status === 'sending'}
+                className="flex items-center gap-2 text-sm font-medium text-white pt-2"
+              >
+                {status === 'sending' ? 'Sending…' : 'Send message'}
+                <span aria-hidden>→</span>
+              </motion.button>
             </form>
           )}
-        </div>
+        </Reveal>
       </div>
     </div>
   );

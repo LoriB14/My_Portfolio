@@ -18,6 +18,7 @@ export interface Project {
 export interface SkillItem {
   name: string;
   desc?: string;
+  icon?: string; // simpleicons.org slug, optional — falls back to plain text
 }
 
 export interface SkillGroup {

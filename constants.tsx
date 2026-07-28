@@ -114,11 +114,11 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description: "Core programming languages",
     icon: "CODE",
     items: [
-      { name: "JavaScript" },
-      { name: "TypeScript" },
-      { name: "Python" },
-      { name: "Java" },
-      { name: "C" }
+      { name: "JavaScript", icon: "javascript" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Python", icon: "python" },
+      { name: "Java", icon: "openjdk" },
+      { name: "C", icon: "c" }
     ]
   },
   {
@@ -126,11 +126,11 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description: "Interfaces and interaction",
     icon: "LAYOUT",
     items: [
-      { name: "React" },
-      { name: "Next.js", desc: "App routing, SSR" },
-      { name: "Tailwind CSS" },
-      { name: "HTML / CSS" },
-      { name: "Framer Motion" }
+      { name: "React", icon: "react" },
+      { name: "Next.js", desc: "App routing, SSR", icon: "nextdotjs" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
+      { name: "HTML / CSS", icon: "html5" },
+      { name: "Framer Motion", icon: "framer" }
     ]
   },
   {
@@ -138,11 +138,11 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description: "APIs, databases, and services",
     icon: "SERVER",
     items: [
-      { name: "Node.js" },
-      { name: "Flask" },
-      { name: "PostgreSQL" },
-      { name: "SQLite" },
-      { name: "Supabase", desc: "Auth, DB, Storage" },
+      { name: "Node.js", icon: "nodedotjs" },
+      { name: "Flask", icon: "flask" },
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "SQLite", icon: "sqlite" },
+      { name: "Supabase", desc: "Auth, DB, Storage", icon: "supabase" },
       { name: "REST APIs" }
     ]
   },
@@ -151,12 +151,12 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description: "Deployment, tooling, and infrastructure",
     icon: "TERMINAL",
     items: [
-      { name: "Linux" },
-      { name: "Git" },
-      { name: "Docker" },
-      { name: "Google APIs", desc: "Maps, Gemini, Places" },
-      { name: "GCP" },
-      { name: "Jenkins" }
+      { name: "Linux", icon: "linux" },
+      { name: "Git", icon: "git" },
+      { name: "Docker", icon: "docker" },
+      { name: "Google APIs", desc: "Maps, Gemini, Places", icon: "google" },
+      { name: "GCP", icon: "googlecloud" },
+      { name: "Jenkins", icon: "jenkins" }
     ]
   },
   {
@@ -164,11 +164,11 @@ export const SKILL_GROUPS: SkillGroup[] = [
     description: "Analytics, testing, and process improvement",
     icon: "CHART",
     items: [
-      { name: "SQL" },
+      { name: "SQL", icon: "mysql" },
       { name: "KPI Dashboards" },
       { name: "Data Visualization" },
       { name: "Manual Testing" },
-      { name: "UX/UI Analysis" },
+      { name: "UX/UI Analysis", icon: "figma" },
       { name: "IL6S / Lean", desc: "Process improvement" }
     ]
   }
