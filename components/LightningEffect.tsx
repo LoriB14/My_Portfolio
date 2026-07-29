@@ -117,84 +117,15 @@ function drawBolt(ctx: CanvasRenderingContext2D, w: number, h: number, bolt: Bol
 }
 
 /**
- * Cinematic, near-continuous lightning — canvas-rendered fractal bolts +
- * synthesized thunder, both generated fresh each time so no two strikes look
- * or sound alike. Fires roughly every 0.7-1.4s, often as a cluster of 2-3
- * overlapping strikes at once for a genuinely stormy feel. Respects
- * prefers-reduced-motion (skips entirely) and browser autoplay rules (audio
- * only unlocks after the first user interaction).
+ * Cinematic lightning — canvas-rendered fractal bolts, each generated fresh
+ * so no two strikes look alike. Fires roughly every 2.5-3.5s, occasionally
+ * as a pair or triple landing together (never more than 3 bolts alive at
+ * once). Respects prefers-reduced-motion (skips entirely). Silent by design
+ * — no audio.
  */
 const LightningEffect: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const noiseBufferRef = useRef<AudioBuffer | null>(null);
-
-  // Unlock audio on first interaction — never attempt to play before that.
-  useEffect(() => {
-    if (shouldReduceMotion) return;
-    const unlock = () => {
-      if (!audioCtxRef.current) {
-        try {
-          const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-          const ctx = new AudioCtx();
-          const buffer = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
-          const data = buffer.getChannelData(0);
-          for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
-          audioCtxRef.current = ctx;
-          noiseBufferRef.current = buffer;
-        } catch {
-          // Web Audio unsupported — thunder simply stays silent.
-        }
-      }
-      // Some browsers create the context "suspended" even after a real user
-      // gesture — explicitly resume so scheduled thunder actually plays.
-      audioCtxRef.current?.resume().catch(() => {});
-    };
-    window.addEventListener('pointerdown', unlock, { once: true });
-    window.addEventListener('keydown', unlock, { once: true });
-    window.addEventListener('touchstart', unlock, { once: true });
-    window.addEventListener('click', unlock, { once: true });
-    return () => {
-      window.removeEventListener('pointerdown', unlock);
-      window.removeEventListener('keydown', unlock);
-      window.removeEventListener('touchstart', unlock);
-      window.removeEventListener('click', unlock);
-    };
-  }, [shouldReduceMotion]);
-
-  const playThunder = () => {
-    const ctx = audioCtxRef.current;
-    const buffer = noiseBufferRef.current;
-    if (!ctx || !buffer) return;
-    if (ctx.state !== 'running') ctx.resume().catch(() => {});
-
-    const delay = 0.22 + Math.random() * 0.7; // thunder lags the flash, like real distance
-    const startAt = ctx.currentTime + delay;
-    const dur = 1.3 + Math.random() * 1.4;
-
-    const src = ctx.createBufferSource();
-    src.buffer = buffer;
-    src.loop = true;
-
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(850 + Math.random() * 450, startAt);
-    filter.frequency.exponentialRampToValueAtTime(80 + Math.random() * 60, startAt + dur * 0.8);
-
-    const gain = ctx.createGain();
-    const peak = 0.26 + Math.random() * 0.1; // clearly audible, still tasteful
-    gain.gain.setValueAtTime(0.0001, startAt);
-    gain.gain.linearRampToValueAtTime(peak, startAt + 0.06);
-    gain.gain.linearRampToValueAtTime(peak * 0.5, startAt + 0.35);
-    gain.gain.exponentialRampToValueAtTime(0.0001, startAt + dur);
-
-    src.connect(filter);
-    filter.connect(gain);
-    gain.connect(ctx.destination);
-    src.start(startAt);
-    src.stop(startAt + dur + 0.05);
-  };
 
   useEffect(() => {
     if (shouldReduceMotion) return;
@@ -237,12 +168,12 @@ const LightningEffect: React.FC = () => {
         totalLife: 155 + fadeDuration,
       });
       window.dispatchEvent(new CustomEvent(LIGHTNING_EVENT));
-      playThunder();
     };
 
-    // Near-continuous strikes — roughly once a second — with a good chance
-    // of two or three landing at once for a genuinely stormy feel.
-    let nextSpawnAt = performance.now() + 200 + Math.random() * 300;
+    // A calmer cadence — roughly once every 3s — with an occasional pair or
+    // triple landing together, but never more than 3 bolts alive at once.
+    const MAX_CONCURRENT = 3;
+    let nextSpawnAt = performance.now() + 1200 + Math.random() * 1200;
 
     const loop = (now: number) => {
       if (cancelled) return;
@@ -257,12 +188,10 @@ const LightningEffect: React.FC = () => {
         return true;
       });
 
-      // Safety cap: at this cadence a slow tab (e.g. backgrounded then
-      // refocused) could otherwise let strikes pile up faster than they
-      // expire. Capping concurrent bolts keeps worst-case cost bounded.
-      if (now >= nextSpawnAt && activeStrikes.length < 5) {
+      if (now >= nextSpawnAt && activeStrikes.length < MAX_CONCURRENT) {
         const roll = Math.random();
-        const clusterSize = roll < 0.45 ? 1 : roll < 0.8 ? 2 : 3;
+        const desired = roll < 0.6 ? 1 : roll < 0.88 ? 2 : 3;
+        const clusterSize = Math.min(desired, MAX_CONCURRENT - activeStrikes.length);
         for (let i = 0; i < clusterSize; i++) {
           // Slight stagger so a cluster still reads as distinct bolts, not
           // one merged blob — some essentially simultaneous, some a beat apart.
@@ -270,7 +199,7 @@ const LightningEffect: React.FC = () => {
           if (delay === 0) spawnStrike(now);
           else staggerTimeouts.push(window.setTimeout(() => { if (!cancelled) spawnStrike(performance.now()); }, delay));
         }
-        nextSpawnAt = now + 700 + Math.random() * 700; // roughly every 0.7-1.4s — about once a second
+        nextSpawnAt = now + 2500 + Math.random() * 1000; // roughly every 2.5-3.5s
       }
 
       rafId = requestAnimationFrame(loop);

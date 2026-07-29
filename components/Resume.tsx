@@ -45,7 +45,7 @@ const Resume: React.FC<ResumeProps> = ({ isOpen, onClose }) => {
         <div className="fixed top-6 right-6 z-[110] flex gap-4 no-print">
           <button
             onClick={onClose}
-            className="flex items-center gap-2 bg-white text-slate-950 px-5 py-2.5 rounded-full font-display font-medium text-sm hover:bg-white/90 transition-colors"
+            className="flex items-center gap-2 bg-white text-slate-950 px-5 py-2.5 rounded-full font-display font-medium text-sm transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5"
           >
             Close ✕
           </button>

@@ -130,9 +130,10 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectStateChange }) => {
                                   href={project.demoUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm font-medium text-white flex items-center gap-1.5 hover:text-fuchsia-200 transition-colors"
+                                  className="group text-sm font-medium text-white flex items-center gap-1.5 hover:text-fuchsia-200 transition-colors"
                                 >
-                                  Live demo <span aria-hidden>→</span>
+                                  Live demo
+                                  <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                                 </a>
                               ) : (
                                 <span className="text-sm text-white/25">Private / NDA</span>

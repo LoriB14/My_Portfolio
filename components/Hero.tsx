@@ -162,9 +162,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white font-display font-medium text-sm rounded-full transition-shadow hover:shadow-[0_0_30px_rgba(217,70,239,0.3)]"
+            className="group w-full sm:w-auto px-8 py-3.5 bg-white text-slate-950 font-display font-medium text-sm rounded-full inline-flex items-center justify-center gap-2 transition-colors duration-300 hover:bg-white/90"
           >
             View projects
+            <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </motion.button>
 
           <motion.button

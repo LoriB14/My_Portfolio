@@ -88,12 +88,15 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false, onOpen
           Resume
         </button>
 
-        <button
+        <motion.button
+          whileHover={{ y: -1 }}
+          whileTap={{ scale: 0.96 }}
           onClick={() => scrollTo('contact')}
-          className="hidden xl:block bg-gradient-to-r from-fuchsia-500 to-purple-500 text-white px-5 py-2 rounded-full font-display font-medium text-[13px] transition-shadow hover:shadow-[0_0_18px_rgba(217,70,239,0.25)] whitespace-nowrap"
+          className="group hidden xl:inline-flex items-center gap-1.5 bg-white text-slate-950 px-5 py-2 rounded-full font-display font-medium text-[13px] transition-colors duration-300 hover:bg-white/90 whitespace-nowrap"
         >
           Contact
-        </button>
+          <span aria-hidden className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </motion.button>
 
         {/* Hamburger — mobile / tablet */}
         <button
