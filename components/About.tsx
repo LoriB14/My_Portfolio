@@ -45,19 +45,11 @@ const About: React.FC = () => {
         <div className="lg:col-span-3 space-y-5 text-base sm:text-lg text-white/60 leading-relaxed max-w-[56ch]">
           <h3 className="text-sm font-display font-medium text-white/80 tracking-wide uppercase mb-2">Why me</h3>
           <p>
-            I was born in Syria and moved to Canada when I was nine. Watching my parents leave behind everything
-            they'd built to give our family a better future taught me resilience, gratitude, and how to adapt
-            fast — lessons that still shape how I approach school, work, and every goal I set.
-          </p>
-          <p>
-            One of the biggest influences on how I lead was my grade 7/8 teacher, Mr. Caruso. He noticed when
-            people were struggling and made space for questions instead of letting anyone fall behind. I try to
-            bring that same attention into every team I'm part of.
-          </p>
-          <p>
-            Two artifacts say the most about who I am: a photo of my family, because their sacrifice shaped
-            nearly everything I value, and Pegasus, because it's proof I can take an idea all the way to
-            something real, on my own.
+            {/*
+              TODO (Lori): replace this line with 2-3 sentences in your own words.
+              Keep it short and about motivation/values, not personal history — see chat for prompts.
+            */}
+            A few sentences on what draws me to this field and how I like to work — in my own words.
           </p>
         </div>
 

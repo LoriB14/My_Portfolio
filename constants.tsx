@@ -109,21 +109,21 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 6,
-    title: "EECS 2030 — DATA STRUCTURES",
-    category: "ACADEMIC / EECS 2030",
-    image: "https://placehold.co/800x450/0f172a/c026d3/png?text=EECS+2030&font=montserrat",
-    tags: ["Java", "OOP", "Generics", "Linked Lists"],
-    description: "Coursework from York's Data Structures course — object-oriented Java implementations of custom collections, generics, and linked list structures, each paired with a written reflection on the design decisions.",
-    detailedDescription: "Nine lab assignments plus a graded assignment building core data structures from scratch in Java: an AirportLog/Airport system modeling encapsulated records with custom parsing constructors, a SingleLinkedList implementation, and a generic Utility class using bounded wildcards (List<? super T>, List<? extends MyInteger>) to safely support subclass/superclass types. Each lab paired working code with a written reflection on what broke and why — for example, handling the empty-list edge case in removeFromHead(), or working out the right generic type bounds for mergeList() and removeZero() after the first versions failed their test cases.",
+    title: "CROWDFLOW",
+    category: "CAMPUS / REAL-TIME DATA (IN PROGRESS)",
+    image: "https://placehold.co/800x450/0f172a/c026d3/png?text=CROWDFLOW&font=montserrat",
+    tags: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"],
+    description: "A crowd-level tracker for York University's busiest spaces — built to help students see which buildings are quiet before they head over.",
+    detailedDescription: "A personal project estimating real-time crowd levels across five York campus buildings (Vari Hall, Scott Library, Bergeron Centre, Central Square, Ross Building). A Node backend models hourly crowd profiles per building and writes live readings to Supabase every 30 seconds; the Next.js frontend is the next piece being built out to surface that data as a simple live dashboard.",
     features: [
-      "Custom Java collections (AirportLog, SingleLinkedList)",
-      "Generic type bounds & wildcards",
-      "Constructor-based validation/parsing",
-      "Written reflection per lab"
+      "Per-building hourly crowd modeling",
+      "Live data pipeline (Supabase, 30s interval)",
+      "Next.js + Tailwind frontend (in progress)",
+      "Built for York's own campus buildings"
     ],
-    role: "Student — Individual Coursework",
-    status: "Completed, EECS 2030 (York University)",
-    technicalDetails: "Pure Java, no external libraries. Focus on encapsulation, defensive copying, generic type constraints, and edge-case handling validated against instructor test suites.",
+    role: "Solo Developer",
+    status: "In Progress",
+    technicalDetails: "Node.js backend script models and writes crowd-level readings to Supabase on a timer. Next.js 16 + Tailwind frontend scaffolded; dashboard UI in progress.",
     demoUrl: "",
     repoUrl: ""
   },
@@ -144,6 +144,26 @@ export const PROJECTS: Project[] = [
     role: "QA Testing & UX/UI Analyst",
     status: "Ongoing",
     technicalDetails: "Testing across onboarding, housing, training, and workforce/LMIA modules, plus the AWS Cognito auth migration (JWT-based sign-in replacing the prior token system).",
+    demoUrl: "",
+    repoUrl: ""
+  },
+  {
+    id: 8,
+    title: "OWNING MY — GROWTH STRATEGY",
+    category: "RIIPEN / STRATEGY CONSULTING",
+    image: "https://placehold.co/800x450/0f172a/c026d3/png?text=OWNING+MY&font=montserrat",
+    tags: ["Riipen", "Project Coordination", "Growth Strategy", "Client Advisory"],
+    description: "A growth strategy engagement for Owning My, an AI implementation and advisory company, run through Riipen Labs.",
+    detailedDescription: "As Project Lead, coordinated the team, organized deliverables, and helped shape a recommendation to use an AI Risk Audit as a client acquisition funnel. The team analyzed Owning My's target market, current messaging, and growth challenges, then developed a final report outlining a more scalable and repeatable path for lead generation and conversion.",
+    features: [
+      "Team & deliverable coordination (Project Lead)",
+      "Target market & messaging analysis",
+      "AI Risk Audit funnel recommendation",
+      "Final growth strategy report for the client"
+    ],
+    role: "Project Lead",
+    status: "Completed, Mar – Apr 2026",
+    technicalDetails: "Riipen Labs work-integrated learning project — market and strategy analysis culminating in a client-facing growth recommendation (not software development).",
     demoUrl: "",
     repoUrl: ""
   }
