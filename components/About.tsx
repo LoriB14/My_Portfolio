@@ -44,12 +44,24 @@ const About: React.FC = () => {
       >
         <div className="lg:col-span-3 space-y-5 text-base sm:text-lg text-white/60 leading-relaxed max-w-[56ch]">
           <h3 className="text-sm font-display font-medium text-white/80 tracking-wide uppercase mb-2">Why me</h3>
+          <p className="text-white/80 font-medium">Hey, I'm Lori!</p>
           <p>
-            {/*
-              TODO (Lori): replace this line with 2-3 sentences in your own words.
-              Keep it short and about motivation/values, not personal history — see chat for prompts.
-            */}
-            A few sentences on what draws me to this field and how I like to work — in my own words.
+            I'm a Computer Science student who's naturally curious, creative, and always looking for something
+            new to learn. I've always enjoyed figuring out how things work, solving problems, and turning ideas
+            into something real.
+          </p>
+          <p>
+            I'm someone who enjoys being involved in different things — from building projects and experimenting
+            with technology to working with people, leading teams, and learning from new experiences. I like
+            challenges that push me outside my comfort zone and give me the opportunity to grow.
+          </p>
+          <p>
+            Outside of school and work, I enjoy spending time with friends and family, being involved in my
+            community, and taking on new projects just because I'm curious about them.
+          </p>
+          <p>
+            I'm still figuring out exactly where my career will take me, but I know I want to keep learning,
+            building, and making an impact along the way.
           </p>
         </div>
 
