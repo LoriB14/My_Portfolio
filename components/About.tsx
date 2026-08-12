@@ -2,6 +2,7 @@
 import React from 'react';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
+import whyMeVideo from '../Logos/WhyMeVideo.mp4';
 
 const STATS = [
   { label: 'Year', value: '3rd' },
@@ -62,14 +63,10 @@ const About: React.FC = () => {
 
         <div className="lg:col-span-2">
           <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02]">
-            {/* TODO: replace VIDEO_ID_HERE with your own "About Me" video's YouTube ID once you've recorded and uploaded it (unlisted is fine). */}
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-              title="About Me"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <video className="w-full h-full object-cover" controls preload="metadata" playsInline>
+              <source src={whyMeVideo} type="video/mp4" />
+              Your browser doesn't support embedded video.
+            </video>
           </div>
           <p className="text-xs text-white/30 mt-3">Why Me — a short introduction.</p>
         </div>
