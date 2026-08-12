@@ -1,3 +1,4 @@
+
 import sixAssistLogo from './Logos/6ixAssist_logo.png';
 import pegasusLogo from './Logos/PegasusCover.png';
 import packPalLogo from './Logos/PackPal.png';
@@ -33,7 +34,7 @@ export const PROJECTS: Project[] = [
     image: wealthQuestLogo,
     tags: ["React", "Next.js", "Phaser", "TypeScript"],
     description: "Wealth Quest is a retro, life-choice game that teaches kids financial literacy through everyday decisions.",
-    detailedDescription: "Feb 2026 — Created during ElleHacks 2026. Players explore a pixel-art city and make choices around spending, saving, and investing, with simple, kid-friendly feedback that explains real money concepts. The game was built using React + Next.js with Phaser for the top-down world, focusing on clarity, accessibility, and playful learning. Inspired by Wealthsimple’s mission to make money education more approachable.",
+    detailedDescription: "Feb 2026 — Created during ElleHacks 2026. Players explore a pixel-art city and make choices around spending, saving, and investing, with simple, kid-friendly feedback that explains real money concepts. The game was built using React + Next.js with Phaser for the top-down world, focusing on clarity, accessibility, and playful learning. Inspired by Wealthsimple's mission to make money education more approachable.",
     features: [
       "Pixel-art City Exploration",
       "Financial Literacy Education",
@@ -64,7 +65,7 @@ export const PROJECTS: Project[] = [
     status: "Live Deployment",
     technicalDetails: "Next.js (App Router) with server‑side rendering and incremental static regeneration. Tailwind CSS design system, Lighthouse‑friendly performance budgets. Hosted on Vercel for automatic scaling and CDN edge caching.",
     demoUrl: "https://pegasus-zeta.vercel.app/",
-    repoUrl: "" 
+    repoUrl: ""
   },
   {
     id: 4,
@@ -103,6 +104,46 @@ export const PROJECTS: Project[] = [
     role: "Solo Developer",
     status: "Archived",
     technicalDetails: "Flask REST API with a background scheduler for data ingestion, SQLite for storage, Chart.js for visualization.",
+    demoUrl: "",
+    repoUrl: ""
+  },
+  {
+    id: 6,
+    title: "EECS 2030 — DATA STRUCTURES",
+    category: "ACADEMIC / EECS 2030",
+    image: "https://placehold.co/800x450/0f172a/c026d3/png?text=EECS+2030&font=montserrat",
+    tags: ["Java", "OOP", "Generics", "Linked Lists"],
+    description: "Coursework from York's Data Structures course — object-oriented Java implementations of custom collections, generics, and linked list structures, each paired with a written reflection on the design decisions.",
+    detailedDescription: "Nine lab assignments plus a graded assignment building core data structures from scratch in Java: an AirportLog/Airport system modeling encapsulated records with custom parsing constructors, a SingleLinkedList implementation, and a generic Utility class using bounded wildcards (List<? super T>, List<? extends MyInteger>) to safely support subclass/superclass types. Each lab paired working code with a written reflection on what broke and why — for example, handling the empty-list edge case in removeFromHead(), or working out the right generic type bounds for mergeList() and removeZero() after the first versions failed their test cases.",
+    features: [
+      "Custom Java collections (AirportLog, SingleLinkedList)",
+      "Generic type bounds & wildcards",
+      "Constructor-based validation/parsing",
+      "Written reflection per lab"
+    ],
+    role: "Student — Individual Coursework",
+    status: "Completed, EECS 2030 (York University)",
+    technicalDetails: "Pure Java, no external libraries. Focus on encapsulation, defensive copying, generic type constraints, and edge-case handling validated against instructor test suites.",
+    demoUrl: "",
+    repoUrl: ""
+  },
+  {
+    id: 7,
+    title: "YADAG — QA & AUTH TESTING",
+    category: "QA / CLIENT PROJECT",
+    image: "https://placehold.co/800x450/0f172a/c026d3/png?text=YADAG&font=montserrat",
+    tags: ["Manual Testing", "UX/UI Analysis", "AWS Cognito", "Riipen"],
+    description: "Structured QA engagement testing authentication, onboarding, housing, and training features for an agri-workforce platform, run as a Riipen work-integrated learning project.",
+    detailedDescription: "Designed and executed manual test plans across five feature areas — onboarding, housing, training, workforce/LMIA compliance, and the AWS Cognito authentication migration — documenting results and defects for each. Worked within a structured Riipen team (Project Lead / Research Lead / Strategy Lead / Ops Lead / Comms Lead roles) with a shared decision log to track testing priorities and findings as the product moved through staging.",
+    features: [
+      "Manual test case design & execution",
+      "Cross-feature regression testing",
+      "Structured defect documentation",
+      "Team decision log & role-based workflow"
+    ],
+    role: "QA Testing & UX/UI Analyst",
+    status: "Ongoing",
+    technicalDetails: "Testing across onboarding, housing, training, and workforce/LMIA modules, plus the AWS Cognito auth migration (JWT-based sign-in replacing the prior token system).",
     demoUrl: "",
     repoUrl: ""
   }

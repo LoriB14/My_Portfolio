@@ -16,6 +16,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, isHidden = false, onOpen
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'reflections', label: 'Reflections' },
+    { id: 'goals', label: 'Goals' },
     { id: 'education', label: 'Education' },
     { id: 'skills', label: 'Skills' },
   ];

@@ -21,7 +21,7 @@ const TechIcon: React.FC<{ slug: string; name: string }> = ({ slug, name }) => {
 const Skills: React.FC = () => {
   return (
     <div className="w-full">
-      <SectionHeading index="06" title="Skills" note="Systems · architecture · design" />
+      <SectionHeading index="07" title="Skills" note="Systems · architecture · design" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
         {SKILL_GROUPS.map((group, index) => (

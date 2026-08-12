@@ -7,6 +7,7 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Reflections from './components/Reflections';
+import Goals from './components/Goals';
 import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
@@ -24,7 +25,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'projects', 'reflections', 'education', 'skills', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'reflections', 'goals', 'education', 'skills', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -89,6 +90,10 @@ const App: React.FC = () => {
 
         <section id="reflections" className="py-28 sm:py-36 px-6 max-w-6xl mx-auto">
           <Reflections />
+        </section>
+
+        <section id="goals" className="py-28 sm:py-36 px-6 max-w-6xl mx-auto">
+          <Goals />
         </section>
 
         <section id="education" className="py-28 sm:py-36 px-6 max-w-6xl mx-auto">

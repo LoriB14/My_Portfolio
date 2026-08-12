@@ -35,6 +35,45 @@ const About: React.FC = () => {
           ))}
         </Reveal>
       </div>
+
+      <Reveal
+        direction="up"
+        delay={0.15}
+        className="mt-16 pt-12 border-t border-white/10 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-start"
+      >
+        <div className="lg:col-span-3 space-y-5 text-base sm:text-lg text-white/60 leading-relaxed max-w-[56ch]">
+          <h3 className="text-sm font-display font-medium text-white/80 tracking-wide uppercase mb-2">Why me</h3>
+          <p>
+            I was born in Syria and moved to Canada when I was nine. Watching my parents leave behind everything
+            they'd built to give our family a better future taught me resilience, gratitude, and how to adapt
+            fast — lessons that still shape how I approach school, work, and every goal I set.
+          </p>
+          <p>
+            One of the biggest influences on how I lead was my grade 7/8 teacher, Mr. Caruso. He noticed when
+            people were struggling and made space for questions instead of letting anyone fall behind. I try to
+            bring that same attention into every team I'm part of.
+          </p>
+          <p>
+            Two artifacts say the most about who I am: a photo of my family, because their sacrifice shaped
+            nearly everything I value, and Pegasus, because it's proof I can take an idea all the way to
+            something real, on my own.
+          </p>
+        </div>
+
+        <div className="lg:col-span-2">
+          <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-white/[0.02]">
+            {/* TODO: replace VIDEO_ID_HERE with your own "About Me" video's YouTube ID once you've recorded and uploaded it (unlisted is fine). */}
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+              title="About Me"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <p className="text-xs text-white/30 mt-3">Why Me — a short introduction.</p>
+        </div>
+      </Reveal>
     </div>
   );
 };

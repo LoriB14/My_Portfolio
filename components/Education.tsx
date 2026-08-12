@@ -22,7 +22,7 @@ const CERT_SKILLS = [
 const Education: React.FC = () => {
   return (
     <div className="w-full">
-      <SectionHeading index="04" title="Education" />
+      <SectionHeading index="06" title="Education" />
 
       <div className="divide-y divide-white/10 border-t border-b border-white/10">
         <Reveal direction="left" amount={0.2} className="py-9 sm:py-10">

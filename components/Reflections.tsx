@@ -80,7 +80,7 @@ const Reflections: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SectionHeading index="05" title="Reflections" />
+      <SectionHeading index="04" title="Reflections" />
 
       <Reveal direction="left" className="flex gap-6 mb-10 border-b border-white/10">
         {REFLECTIONS.map((r) => (

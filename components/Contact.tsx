@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="w-full">
-      <SectionHeading index="07" title="Contact" />
+      <SectionHeading index="08" title="Contact" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <Reveal direction="left" className="space-y-8">
