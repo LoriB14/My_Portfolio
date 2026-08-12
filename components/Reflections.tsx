@@ -64,6 +64,31 @@ const REFLECTIONS: ReflectionEntry[] = [
       },
     ],
   },
+  {
+    id: 3,
+    tab: 'Coursework',
+    project: 'ECON 1000 — Introduction to Economics, York University',
+    title: 'The elective that changed how I think about what I build',
+    date: 'Summer 2026',
+    sections: [
+      {
+        heading: 'What happened',
+        text: 'Took ECON 1000 as a breadth requirement for my CS degree, expecting it to be a box to check.',
+      },
+      {
+        heading: 'The struggle',
+        text: "Staying genuinely engaged in a subject outside my major — economics wasn't originally on my radar as a CS student.",
+      },
+      {
+        heading: 'What I learned',
+        text: 'I ended up really learning a lot from the course, and it got me interested in economics and the business side of things.',
+      },
+      {
+        heading: 'Going forward',
+        text: "It's part of why I'm drawn to where business and tech intersect — I want to build things that are technically sound and make sense as a business, not just technically impressive.",
+      },
+    ],
+  },
 ];
 
 const CAREER_GOALS = [

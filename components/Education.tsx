@@ -10,6 +10,7 @@ const COURSEWORK = [
   'Discrete Mathematics',
   'Computer Organization',
   'Software Design & Architecture',
+  'Introduction to Economics',
 ];
 
 const CERT_SKILLS = [

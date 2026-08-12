@@ -9,19 +9,20 @@ import { LIGHTNING_EVENT } from './LightningEffect';
  * its own hover effect. Desktop only (no cursor on touch). If the OS has
  * "reduce motion" on, it still shows a soft static glow — just without
  * the mouse-tracking movement. Briefly flares brighter whenever a
- * lightning strike fires elsewhere on the page.
+ * lightning strike fires elsewhere on the page. Sized and dimmed down for
+ * a subtler "presence" rather than a following spotlight.
  */
 const CursorSpotlight: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
   const [hasMouse, setHasMouse] = useState(false);
   const x = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 0);
   const y = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 3 : 0);
-  const background = useMotionTemplate`radial-gradient(650px circle at ${x}px ${y}px, rgba(232,121,249,0.16), rgba(168,85,247,0.09) 35%, transparent 65%)`;
+  const background = useMotionTemplate`radial-gradient(480px circle at ${x}px ${y}px, rgba(232,121,249,0.11), rgba(168,85,247,0.06) 35%, transparent 65%)`;
 
   const flare = useMotionValue(0);
-  const flareAlpha1 = useTransform(flare, (v) => 0.16 + v * 0.55);
-  const flareAlpha2 = useTransform(flare, (v) => 0.09 + v * 0.4);
-  const flareBackground = useMotionTemplate`radial-gradient(850px circle at ${x}px ${y}px, rgba(255,255,255,${flareAlpha1}), rgba(232,121,249,${flareAlpha2}) 35%, transparent 68%)`;
+  const flareAlpha1 = useTransform(flare, (v) => 0.11 + v * 0.4);
+  const flareAlpha2 = useTransform(flare, (v) => 0.06 + v * 0.28);
+  const flareBackground = useMotionTemplate`radial-gradient(650px circle at ${x}px ${y}px, rgba(255,255,255,${flareAlpha1}), rgba(232,121,249,${flareAlpha2}) 35%, transparent 68%)`;
 
   useEffect(() => {
     if (shouldReduceMotion) return;

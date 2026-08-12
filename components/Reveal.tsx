@@ -14,7 +14,10 @@ interface RevealProps {
 /**
  * Shared scroll-reveal primitive used across every section so motion feels
  * like one considered system instead of bespoke animations per component.
- * Respects prefers-reduced-motion (falls back to a plain fade).
+ * Respects prefers-reduced-motion (falls back to a plain fade). Animates in
+ * once per element (not every time it re-enters the viewport) so scrolling
+ * back up and down the page doesn't retrigger everything — calmer on repeat
+ * visits/scrolling.
  */
 export const Reveal: React.FC<RevealProps> = ({
   children,
@@ -41,7 +44,7 @@ export const Reveal: React.FC<RevealProps> = ({
     <motion.div
       initial="hidden"
       whileInView="show"
-      viewport={{ once: false, amount }}
+      viewport={{ once: true, amount }}
       variants={variants}
       transition={{
         duration: shouldReduceMotion ? 0.35 : duration ?? 0.75,
