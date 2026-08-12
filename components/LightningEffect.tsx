@@ -101,9 +101,6 @@ function drawBolt(ctx: CanvasRenderingContext2D, w: number, h: number, bolt: Bol
   ctx.fillRect(0, 0, w, h);
 
   // Main bolt: soft purple halo, mid violet-white, thin hot-white core.
-  // (shadowBlur is one of the most expensive Canvas2D ops — keep radii modest
-  // since strikes now fire often; the wide semi-transparent stroke itself
-  // reads as glow without needing a huge blur pass.)
   strokePath(ctx, bolt.path, 18, 'rgba(196,140,255,1)', 20, 0.5 * intensity);
   strokePath(ctx, bolt.path, 5, 'rgba(232,204,255,1)', 10, 0.85 * intensity);
   strokePath(ctx, bolt.path, 1.6, 'rgba(255,255,255,1)', 0, intensity);
@@ -118,10 +115,10 @@ function drawBolt(ctx: CanvasRenderingContext2D, w: number, h: number, bolt: Bol
 
 /**
  * Cinematic lightning — canvas-rendered fractal bolts, each generated fresh
- * so no two strikes look alike. Fires roughly every 2.5-3.5s, occasionally
- * as a pair or triple landing together (never more than 3 bolts alive at
- * once). Respects prefers-reduced-motion (skips entirely). Silent by design
- * — no audio.
+ * so no two strikes look alike. Fires a single bolt roughly every 10-15s —
+ * rare enough to read as a subtle accent rather than a constant effect.
+ * Respects prefers-reduced-motion (skips entirely). Silent by design — no
+ * audio.
  */
 const LightningEffect: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
@@ -135,7 +132,6 @@ const LightningEffect: React.FC = () => {
     if (!ctx) return;
 
     let rafId = 0;
-    const staggerTimeouts: number[] = [];
     let cancelled = false;
 
     const resize = () => {
@@ -151,9 +147,6 @@ const LightningEffect: React.FC = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Several strikes can be alive on screen at once now — each is just an
-    // entry in this list, drawn on top of one another every frame and
-    // dropped once its lifetime is up.
     interface ActiveStrike { bolt: Bolt; start: number; fadeDuration: number; totalLife: number }
     let activeStrikes: ActiveStrike[] = [];
 
@@ -170,10 +163,9 @@ const LightningEffect: React.FC = () => {
       window.dispatchEvent(new CustomEvent(LIGHTNING_EVENT));
     };
 
-    // A calmer cadence — roughly once every 3s — with an occasional pair or
-    // triple landing together, but never more than 3 bolts alive at once.
-    const MAX_CONCURRENT = 3;
-    let nextSpawnAt = performance.now() + 1200 + Math.random() * 1200;
+    // One bolt at a time, roughly every 10-15s.
+    const randomInterval = () => 10000 + Math.random() * 5000;
+    let nextSpawnAt = performance.now() + randomInterval();
 
     const loop = (now: number) => {
       if (cancelled) return;
@@ -188,18 +180,9 @@ const LightningEffect: React.FC = () => {
         return true;
       });
 
-      if (now >= nextSpawnAt && activeStrikes.length < MAX_CONCURRENT) {
-        const roll = Math.random();
-        const desired = roll < 0.6 ? 1 : roll < 0.88 ? 2 : 3;
-        const clusterSize = Math.min(desired, MAX_CONCURRENT - activeStrikes.length);
-        for (let i = 0; i < clusterSize; i++) {
-          // Slight stagger so a cluster still reads as distinct bolts, not
-          // one merged blob — some essentially simultaneous, some a beat apart.
-          const delay = i === 0 ? 0 : 40 + Math.random() * 160;
-          if (delay === 0) spawnStrike(now);
-          else staggerTimeouts.push(window.setTimeout(() => { if (!cancelled) spawnStrike(performance.now()); }, delay));
-        }
-        nextSpawnAt = now + 2500 + Math.random() * 1000; // roughly every 2.5-3.5s
+      if (now >= nextSpawnAt) {
+        spawnStrike(now);
+        nextSpawnAt = now + randomInterval();
       }
 
       rafId = requestAnimationFrame(loop);
@@ -210,7 +193,6 @@ const LightningEffect: React.FC = () => {
       cancelled = true;
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(rafId);
-      staggerTimeouts.forEach((id) => window.clearTimeout(id));
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldReduceMotion]);
